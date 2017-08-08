@@ -8,13 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		3D582B3F1F399E6E00C5E95F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D582B3E1F399E6E00C5E95F /* AppDelegate.swift */; };
-		3D582B411F399E6E00C5E95F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D582B401F399E6E00C5E95F /* ViewController.swift */; };
 		3D582B441F399E6E00C5E95F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D582B421F399E6E00C5E95F /* Main.storyboard */; };
 		3D582B471F399E6E00C5E95F /* Emacity.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3D582B451F399E6E00C5E95F /* Emacity.xcdatamodeld */; };
 		3D582B491F399E6E00C5E95F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D582B481F399E6E00C5E95F /* Assets.xcassets */; };
 		3D582B4C1F399E6E00C5E95F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D582B4A1F399E6E00C5E95F /* LaunchScreen.storyboard */; };
 		3D582B571F399E6E00C5E95F /* EmacityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D582B561F399E6E00C5E95F /* EmacityTests.swift */; };
 		3D582B621F399E6E00C5E95F /* EmacityUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D582B611F399E6E00C5E95F /* EmacityUITests.swift */; };
+		3D582B701F39A22D00C5E95F /* TransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D582B6F1F39A22D00C5E95F /* TransactionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +37,6 @@
 /* Begin PBXFileReference section */
 		3D582B3B1F399E6E00C5E95F /* Emacity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Emacity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D582B3E1F399E6E00C5E95F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3D582B401F399E6E00C5E95F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3D582B431F399E6E00C5E95F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3D582B461F399E6E00C5E95F /* Emacity.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Emacity.xcdatamodel; sourceTree = "<group>"; };
 		3D582B481F399E6E00C5E95F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -49,6 +48,7 @@
 		3D582B5D1F399E6E00C5E95F /* EmacityUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EmacityUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D582B611F399E6E00C5E95F /* EmacityUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmacityUITests.swift; sourceTree = "<group>"; };
 		3D582B631F399E6E00C5E95F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3D582B6F1F39A22D00C5E95F /* TransactionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,8 +99,8 @@
 		3D582B3D1F399E6E00C5E95F /* Emacity */ = {
 			isa = PBXGroup;
 			children = (
+				3D582B6F1F39A22D00C5E95F /* TransactionViewController.swift */,
 				3D582B3E1F399E6E00C5E95F /* AppDelegate.swift */,
-				3D582B401F399E6E00C5E95F /* ViewController.swift */,
 				3D582B421F399E6E00C5E95F /* Main.storyboard */,
 				3D582B481F399E6E00C5E95F /* Assets.xcassets */,
 				3D582B4A1F399E6E00C5E95F /* LaunchScreen.storyboard */,
@@ -265,8 +265,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3D582B411F399E6E00C5E95F /* ViewController.swift in Sources */,
 				3D582B471F399E6E00C5E95F /* Emacity.xcdatamodeld in Sources */,
+				3D582B701F39A22D00C5E95F /* TransactionViewController.swift in Sources */,
 				3D582B3F1F399E6E00C5E95F /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
