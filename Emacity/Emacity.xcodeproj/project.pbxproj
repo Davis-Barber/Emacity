@@ -15,6 +15,10 @@
 		3D582B571F399E6E00C5E95F /* EmacityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D582B561F399E6E00C5E95F /* EmacityTests.swift */; };
 		3D582B621F399E6E00C5E95F /* EmacityUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D582B611F399E6E00C5E95F /* EmacityUITests.swift */; };
 		3D582B701F39A22D00C5E95F /* TransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D582B6F1F39A22D00C5E95F /* TransactionViewController.swift */; };
+		3D962EDF1F3ACF43005E799E /* BudgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D962EDE1F3ACF43005E799E /* BudgetViewController.swift */; };
+		3D962EE11F3AF2E9005E799E /* GoalsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D962EE01F3AF2E9005E799E /* GoalsTableViewController.swift */; };
+		3D962EE31F3AF344005E799E /* NewDebitCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D962EE21F3AF344005E799E /* NewDebitCollectionViewController.swift */; };
+		3D962EE51F3AF380005E799E /* AddDebitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D962EE41F3AF380005E799E /* AddDebitViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +53,10 @@
 		3D582B611F399E6E00C5E95F /* EmacityUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmacityUITests.swift; sourceTree = "<group>"; };
 		3D582B631F399E6E00C5E95F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3D582B6F1F39A22D00C5E95F /* TransactionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionViewController.swift; sourceTree = "<group>"; };
+		3D962EDE1F3ACF43005E799E /* BudgetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BudgetViewController.swift; sourceTree = "<group>"; };
+		3D962EE01F3AF2E9005E799E /* GoalsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalsTableViewController.swift; sourceTree = "<group>"; };
+		3D962EE21F3AF344005E799E /* NewDebitCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewDebitCollectionViewController.swift; sourceTree = "<group>"; };
+		3D962EE41F3AF380005E799E /* AddDebitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddDebitViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +110,10 @@
 				3D582B6F1F39A22D00C5E95F /* TransactionViewController.swift */,
 				3D582B3E1F399E6E00C5E95F /* AppDelegate.swift */,
 				3D582B421F399E6E00C5E95F /* Main.storyboard */,
+				3D962EE41F3AF380005E799E /* AddDebitViewController.swift */,
+				3D962EE21F3AF344005E799E /* NewDebitCollectionViewController.swift */,
+				3D962EE01F3AF2E9005E799E /* GoalsTableViewController.swift */,
+				3D962EDE1F3ACF43005E799E /* BudgetViewController.swift */,
 				3D582B481F399E6E00C5E95F /* Assets.xcassets */,
 				3D582B4A1F399E6E00C5E95F /* LaunchScreen.storyboard */,
 				3D582B4D1F399E6E00C5E95F /* Info.plist */,
@@ -265,7 +277,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D962EE31F3AF344005E799E /* NewDebitCollectionViewController.swift in Sources */,
+				3D962EE11F3AF2E9005E799E /* GoalsTableViewController.swift in Sources */,
+				3D962EDF1F3ACF43005E799E /* BudgetViewController.swift in Sources */,
 				3D582B471F399E6E00C5E95F /* Emacity.xcdatamodeld in Sources */,
+				3D962EE51F3AF380005E799E /* AddDebitViewController.swift in Sources */,
 				3D582B701F39A22D00C5E95F /* TransactionViewController.swift in Sources */,
 				3D582B3F1F399E6E00C5E95F /* AppDelegate.swift in Sources */,
 			);
@@ -518,6 +534,7 @@
 				3D582B681F399E6E00C5E95F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3D582B691F399E6E00C5E95F /* Build configuration list for PBXNativeTarget "EmacityTests" */ = {
 			isa = XCConfigurationList;
@@ -526,6 +543,7 @@
 				3D582B6B1F399E6E00C5E95F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3D582B6C1F399E6E00C5E95F /* Build configuration list for PBXNativeTarget "EmacityUITests" */ = {
 			isa = XCConfigurationList;
@@ -534,6 +552,7 @@
 				3D582B6E1F399E6E00C5E95F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
