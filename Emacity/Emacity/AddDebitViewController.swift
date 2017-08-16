@@ -7,11 +7,15 @@
 //
 
 import UIKit
+import CoreData
 
 class AddDebitViewController: UIViewController {
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+    
 
         // Do any additional setup after loading the view.
     }
@@ -21,9 +25,7 @@ class AddDebitViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func buttonPressed(_ sender: UIButton) {
-        
-    }
+
     
 
     /*

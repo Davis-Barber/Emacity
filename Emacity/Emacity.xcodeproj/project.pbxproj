@@ -21,6 +21,7 @@
 		3D962EE51F3AF380005E799E /* AddDebitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D962EE41F3AF380005E799E /* AddDebitViewController.swift */; };
 		3D962EE71F3D8489005E799E /* ImageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D962EE61F3D8489005E799E /* ImageStore.swift */; };
 		3D962EE91F3D8508005E799E /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D962EE81F3D8508005E799E /* Database.swift */; };
+		3D962EED1F4429BA005E799E /* CategoryStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D962EEC1F4429BA005E799E /* CategoryStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		3D962EE41F3AF380005E799E /* AddDebitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddDebitViewController.swift; sourceTree = "<group>"; };
 		3D962EE61F3D8489005E799E /* ImageStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageStore.swift; sourceTree = "<group>"; };
 		3D962EE81F3D8508005E799E /* Database.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
+		3D962EEC1F4429BA005E799E /* CategoryStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +126,7 @@
 				3D582B4A1F399E6E00C5E95F /* LaunchScreen.storyboard */,
 				3D582B4D1F399E6E00C5E95F /* Info.plist */,
 				3D582B451F399E6E00C5E95F /* Emacity.xcdatamodeld */,
+				3D962EEC1F4429BA005E799E /* CategoryStore.swift */,
 			);
 			path = Emacity;
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 				3D962EE71F3D8489005E799E /* ImageStore.swift in Sources */,
 				3D582B471F399E6E00C5E95F /* Emacity.xcdatamodeld in Sources */,
 				3D962EE51F3AF380005E799E /* AddDebitViewController.swift in Sources */,
+				3D962EED1F4429BA005E799E /* CategoryStore.swift in Sources */,
 				3D962EE91F3D8508005E799E /* Database.swift in Sources */,
 				3D582B701F39A22D00C5E95F /* TransactionViewController.swift in Sources */,
 				3D582B3F1F399E6E00C5E95F /* AppDelegate.swift in Sources */,

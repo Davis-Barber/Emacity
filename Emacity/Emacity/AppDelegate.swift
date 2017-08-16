@@ -13,9 +13,30 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    func loadStartingCategories() {
+        let categories = ["Food", "General", "Groceries", "Transport", "Drinks",
+                        "Entertainment", "Fuel", "Clothing", "Education", "Pet",
+                        "Health", "Sport", "Hobby"]
+        for name in categories {
+            let category:Category = NSEntityDescription.insertNewObject(forEntityName: "Category", into: Database.getContext()) as! Category
+            category.name = name
+        }
+    }
+    
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        let fetchRequest: NSFetchRequest<Category> = Category.fetchRequest()
+        
+        do {
+            let searchResults = try Database.getContext().fetch(fetchRequest)
+            print(searchResults.count)
+            if searchResults.count == 0 {
+                loadStartingCategories()
+            }
+        } catch  {
+            print("Error: \(error)")
+        }
         // Override point for customization after application launch.
         return true
     }
@@ -43,7 +64,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Saves changes in the application's managed object context before the application terminates.
         Database.saveContext()
     }
-    
     
 
     

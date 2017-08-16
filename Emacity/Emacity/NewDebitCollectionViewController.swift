@@ -7,13 +7,31 @@
 //
 
 import UIKit
+import CoreData
 
 private let reuseIdentifier = "Cell"
 
 class NewDebitCollectionViewController: UICollectionViewController {
+    
+    var categories: [Category]?
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let fetchRequest: NSFetchRequest<Category> = Category.fetchRequest()
+        
+        do {
+            let searchResults = try Database.getContext().fetch(fetchRequest)
+            print(searchResults.count)
+            categories = searchResults
+            print(categories ?? "Error")
+            
+        } catch  {
+            print("Error: \(error)")
+        }
+        
+        
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false

@@ -44,6 +44,10 @@ class Database {
         return container
     }()
     
+    class func getContext() -> NSManagedObjectContext {
+        return persistentContainer.viewContext
+    }
+    
     // MARK: - Core Data Saving support
     
     class func saveContext () {
