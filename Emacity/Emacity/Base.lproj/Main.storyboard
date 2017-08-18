@@ -91,114 +91,21 @@
                             <constraint firstItem="yLG-WO-oA7" firstAttribute="centerX" secondItem="708-Fo-Tbh" secondAttribute="centerX" id="szh-Hn-L3Z"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Budget" id="0pG-5l-E3V"/>
+                    <navigationItem key="navigationItem" title="Budget" id="0pG-5l-E3V">
+                        <barButtonItem key="leftBarButtonItem" systemItem="add" id="UiJ-4f-ekj">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="－" id="QhF-Z2-R39">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <segue destination="xeR-2T-Lc4" kind="show" id="tAI-rE-vQ6"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ncC-Sa-XGr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="493.60000000000002" y="-136.28185907046478"/>
-        </scene>
-        <!--Transaction-->
-        <scene sceneID="nwl-GZ-0am">
-            <objects>
-                <viewController id="SPd-Qe-3UF" customClass="TransactionViewController" customModule="Emacity" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="LdN-he-kKx"/>
-                        <viewControllerLayoutGuide type="bottom" id="rzQ-RL-S77"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="boB-Ey-swL">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="XL2-2S-rCw">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rva-G2-ZzT">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="277"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="70"/>
-                                        <state key="normal" title="Debit">
-                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                        <connections>
-                                            <segue destination="gBY-x0-Mw6" kind="show" identifier="NewDebit" id="5NK-nv-bbZ"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aqo-7z-3gZ">
-                                        <rect key="frame" x="0.0" y="277" width="375" height="277"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="70"/>
-                                        <state key="normal" title="Credit">
-                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                    </button>
-                                </subviews>
-                            </stackView>
-                        </subviews>
-                        <color key="backgroundColor" red="0.10196078431372549" green="0.10196078431372549" blue="0.10196078431372549" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstItem="XL2-2S-rCw" firstAttribute="leading" secondItem="boB-Ey-swL" secondAttribute="leading" id="6jx-z5-uq9"/>
-                            <constraint firstAttribute="trailing" secondItem="XL2-2S-rCw" secondAttribute="trailing" id="EDg-Vc-Zzm"/>
-                            <constraint firstItem="XL2-2S-rCw" firstAttribute="top" secondItem="LdN-he-kKx" secondAttribute="bottom" id="g2T-e0-hCk"/>
-                            <constraint firstItem="rzQ-RL-S77" firstAttribute="top" secondItem="XL2-2S-rCw" secondAttribute="bottom" id="wWp-4L-noV"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="Transaction" id="tv2-I4-upc"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ulz-Ft-7KE" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="494" y="-1075"/>
-        </scene>
-        <!--Choose Type-->
-        <scene sceneID="VoY-0y-Ktp">
-            <objects>
-                <collectionViewController id="gBY-x0-Mw6" customClass="NewDebitCollectionViewController" customModule="Emacity" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="aMF-23-gHu">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.10196078431372549" green="0.10196078431372549" blue="0.10196078431372549" alpha="1" colorSpace="calibratedRGB"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="7pQ-oq-BbD">
-                            <size key="itemSize" width="108" height="108"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                        </collectionViewFlowLayout>
-                        <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Category" id="Fha-JQ-oMg">
-                                <rect key="frame" x="0.0" y="0.0" width="108" height="108"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="108" height="108"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Food" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wed-CC-lyt">
-                                            <rect key="frame" x="34.5" y="44" width="39" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                </view>
-                                <constraints>
-                                    <constraint firstItem="Wed-CC-lyt" firstAttribute="centerY" secondItem="Fha-JQ-oMg" secondAttribute="centerY" id="B34-oo-Ubz"/>
-                                    <constraint firstItem="Wed-CC-lyt" firstAttribute="centerX" secondItem="Fha-JQ-oMg" secondAttribute="centerX" id="GFd-4v-EnV"/>
-                                </constraints>
-                                <connections>
-                                    <segue destination="J7z-Lb-095" kind="show" identifier="AddDebit" id="0Jv-sm-6Ml"/>
-                                </connections>
-                            </collectionViewCell>
-                        </cells>
-                        <connections>
-                            <outlet property="dataSource" destination="gBY-x0-Mw6" id="FNj-Tx-PII"/>
-                            <outlet property="delegate" destination="gBY-x0-Mw6" id="RLl-ek-uNx"/>
-                        </connections>
-                    </collectionView>
-                    <navigationItem key="navigationItem" title="Choose Type" id="HRg-09-INX">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="ZZk-B0-pqN">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        </barButtonItem>
-                    </navigationItem>
-                </collectionViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Qy2-Gv-Mf3" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1464.8" y="-1363.2683658170915"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="NdX-a6-o2a">
@@ -211,7 +118,6 @@
                         <color key="barTintColor" red="0.044921875" green="0.40093315969999999" blue="0.68720160590000001" alpha="0.79880136986301375" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
-                        <segue destination="J8S-R5-Zaj" kind="relationship" relationship="viewControllers" id="aFy-vr-o8d"/>
                         <segue destination="nLW-zJ-UTs" kind="relationship" relationship="viewControllers" id="SFe-ZB-RHQ"/>
                         <segue destination="nt1-9R-9lk" kind="relationship" relationship="viewControllers" id="3rQ-Ef-9zj"/>
                     </connections>
@@ -219,6 +125,71 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Irw-Kd-yDs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1226" y="-136"/>
+        </scene>
+        <!--Debit View Controller-->
+        <scene sceneID="HEd-hR-efF">
+            <objects>
+                <viewController id="xeR-2T-Lc4" customClass="DebitViewController" customModule="Emacity" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="yOi-6M-Do5"/>
+                        <viewControllerLayoutGuide type="bottom" id="KTX-75-zdU"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="P2h-rp-gZE">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="eNX-4U-zPx">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" red="0.10196078431372549" green="0.10196078431372549" blue="0.10196078431372549" alpha="1" colorSpace="calibratedRGB"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="vug-ut-Uxf">
+                                    <size key="itemSize" width="100" height="100"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="DebitCollectionViewCell" id="sYg-SA-5cd" customClass="DebitCollectionViewCell" customModule="Emacity" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Food" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WTW-yn-G1c">
+                                                    <rect key="frame" x="30.5" y="40" width="39" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="WTW-yn-G1c" firstAttribute="centerY" secondItem="sYg-SA-5cd" secondAttribute="centerY" id="8Nq-ss-eb2"/>
+                                            <constraint firstItem="WTW-yn-G1c" firstAttribute="centerX" secondItem="sYg-SA-5cd" secondAttribute="centerX" id="US5-Tb-E21"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="categoryLabel" destination="WTW-yn-G1c" id="b3i-PD-7tZ"/>
+                                            <segue destination="J7z-Lb-095" kind="show" id="Shk-BP-h5b"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="eNX-4U-zPx" firstAttribute="leading" secondItem="P2h-rp-gZE" secondAttribute="leading" id="7vL-tV-UJP"/>
+                            <constraint firstAttribute="bottom" secondItem="eNX-4U-zPx" secondAttribute="bottom" id="Lbc-em-Zb8"/>
+                            <constraint firstItem="eNX-4U-zPx" firstAttribute="top" secondItem="P2h-rp-gZE" secondAttribute="top" id="MRi-t0-426"/>
+                            <constraint firstAttribute="trailing" secondItem="eNX-4U-zPx" secondAttribute="trailing" id="vnz-70-LCY"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="eNX-4U-zPx" id="KHY-tY-7u3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1tV-a8-qF6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1580" y="-1312.8935532233884"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="jjx-5t-UmY">
@@ -277,26 +248,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tKi-PQ-v0R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2649" y="-1503"/>
-        </scene>
-        <!--Transaction-->
-        <scene sceneID="ZnO-38-xDJ">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="J8S-R5-Zaj" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Transaction" id="1Op-c7-jIB"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="cKT-xF-fnB">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.043137254901960784" green="0.40000000000000002" blue="0.68627450980392157" alpha="1" colorSpace="calibratedRGB"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="SPd-Qe-3UF" kind="relationship" relationship="rootViewController" id="MVs-Gm-ctE"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="LuQ-iU-Poi" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-423" y="-1075"/>
         </scene>
         <!--Budget-->
         <scene sceneID="HgH-Nx-EiG">

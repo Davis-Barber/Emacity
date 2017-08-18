@@ -1,5 +1,5 @@
 //
-//  NewDebitCollectionViewController.swift
+//  DebitViewController.swift
 //  Emacity
 //
 //  Created by Davis Barber on 9/8/17.
@@ -9,23 +9,27 @@
 import UIKit
 import CoreData
 
-private let reuseIdentifier = "Cell"
 
-class NewDebitCollectionViewController: UICollectionViewController {
+class DebitViewController: UIViewController, UICollectionViewDelegate {
     
-    var categories: [Category]?
+    @IBOutlet var collectionView: UICollectionView!
+    let debitDataSource = DebitDataSource()
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        collectionView.dataSource = debitDataSource
+        collectionView.delegate = self
+        
         
         let fetchRequest: NSFetchRequest<Category> = Category.fetchRequest()
         
         do {
             let searchResults = try Database.getContext().fetch(fetchRequest)
             print(searchResults.count)
-            categories = searchResults
-            print(categories ?? "Error")
+            debitDataSource.categories = searchResults
+            self.collectionView.reloadSections(IndexSet(integer: 0))
             
         } catch  {
             print("Error: \(error)")
@@ -33,14 +37,11 @@ class NewDebitCollectionViewController: UICollectionViewController {
         
         
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Register cell classes
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-
-        // Do any additional setup after loading the view.
     }
+    
+    //func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+    
+    //}
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -57,26 +58,7 @@ class NewDebitCollectionViewController: UICollectionViewController {
     }
     */
 
-    // MARK: UICollectionViewDataSource
-
-    override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
-
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
-        return 0
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
     
-        // Configure the cell
-    
-        return cell
-    }
 
     // MARK: UICollectionViewDelegate
 

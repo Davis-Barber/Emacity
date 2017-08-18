@@ -33,6 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print(searchResults.count)
             if searchResults.count == 0 {
                 loadStartingCategories()
+                Database.saveContext()
             }
         } catch  {
             print("Error: \(error)")
