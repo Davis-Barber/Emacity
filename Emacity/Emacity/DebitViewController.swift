@@ -13,6 +13,7 @@ import CoreData
 class DebitViewController: UIViewController, UICollectionViewDelegate {
     
     @IBOutlet var collectionView: UICollectionView!
+    
     let debitDataSource = DebitDataSource()
     
 
@@ -24,6 +25,8 @@ class DebitViewController: UIViewController, UICollectionViewDelegate {
         
         
         let fetchRequest: NSFetchRequest<Category> = Category.fetchRequest()
+        let sortDescriptor: NSSortDescriptor = NSSortDescriptor(key: "name", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
         
         do {
             let searchResults = try Database.getContext().fetch(fetchRequest)
@@ -34,10 +37,8 @@ class DebitViewController: UIViewController, UICollectionViewDelegate {
         } catch  {
             print("Error: \(error)")
         }
-        
-        
-
     }
+    
     
     //func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
     
@@ -48,47 +49,44 @@ class DebitViewController: UIViewController, UICollectionViewDelegate {
         // Dispose of any resources that can be recreated.
     }
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
+        switch segue.identifier {
+        case "addTransaction"?:
+            if let selectedIndexPath = collectionView.indexPathsForSelectedItems?.first {
+                let categoryName = debitDataSource.categories[selectedIndexPath.row].name
+                
+                let destinationVC = segue.destination as! AddDebitViewController
+                destinationVC.categoryName = categoryName
+            }
+        default:
+            preconditionFailure("Unexpected Segue Identifier")
+        }
     }
-    */
+    
 
     
 
     // MARK: UICollectionViewDelegate
 
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
+}
 
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        return true
+extension DebitViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let collectionViewWidth = collectionView.bounds.size.width
+        let itemWidth = collectionViewWidth / 3
+        
+        return CGSize(width: itemWidth, height: itemWidth)
     }
-    */
-
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
     
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        collectionView.reloadData()
     }
-    */
-
+    
+    
 }

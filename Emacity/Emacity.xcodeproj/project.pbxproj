@@ -24,6 +24,10 @@
 		3D962EED1F4429BA005E799E /* CategoryStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D962EEC1F4429BA005E799E /* CategoryStore.swift */; };
 		3D962EEF1F46DBD3005E799E /* DebitDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D962EEE1F46DBD3005E799E /* DebitDataSource.swift */; };
 		3D962EF11F46DFF6005E799E /* DebitCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D962EF01F46DFF6005E799E /* DebitCollectionViewCell.swift */; };
+		3D962EF31F496D2F005E799E /* SubCategoryPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D962EF21F496D2F005E799E /* SubCategoryPickerView.swift */; };
+		3D962EF51F49727E005E799E /* DollarsPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D962EF41F49727E005E799E /* DollarsPickerView.swift */; };
+		3D962EF71F4ABDC9005E799E /* BudgetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D962EF61F4ABDC9005E799E /* BudgetModel.swift */; };
+		3D962EF91F4BDC49005E799E /* GoalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D962EF81F4BDC49005E799E /* GoalTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +71,10 @@
 		3D962EEC1F4429BA005E799E /* CategoryStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryStore.swift; sourceTree = "<group>"; };
 		3D962EEE1F46DBD3005E799E /* DebitDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebitDataSource.swift; sourceTree = "<group>"; };
 		3D962EF01F46DFF6005E799E /* DebitCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebitCollectionViewCell.swift; sourceTree = "<group>"; };
+		3D962EF21F496D2F005E799E /* SubCategoryPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubCategoryPickerView.swift; sourceTree = "<group>"; };
+		3D962EF41F49727E005E799E /* DollarsPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DollarsPickerView.swift; sourceTree = "<group>"; };
+		3D962EF61F4ABDC9005E799E /* BudgetModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BudgetModel.swift; sourceTree = "<group>"; };
+		3D962EF81F4BDC49005E799E /* GoalTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,8 +128,12 @@
 				3D582B6F1F39A22D00C5E95F /* TransactionViewController.swift */,
 				3D582B3E1F399E6E00C5E95F /* AppDelegate.swift */,
 				3D962EE81F3D8508005E799E /* Database.swift */,
+				3D962EF61F4ABDC9005E799E /* BudgetModel.swift */,
 				3D582B421F399E6E00C5E95F /* Main.storyboard */,
+				3D962EF81F4BDC49005E799E /* GoalTableViewCell.swift */,
 				3D962EE41F3AF380005E799E /* AddDebitViewController.swift */,
+				3D962EF41F49727E005E799E /* DollarsPickerView.swift */,
+				3D962EF21F496D2F005E799E /* SubCategoryPickerView.swift */,
 				3D962EE21F3AF344005E799E /* DebitViewController.swift */,
 				3D962EEE1F46DBD3005E799E /* DebitDataSource.swift */,
 				3D962EF01F46DFF6005E799E /* DebitCollectionViewCell.swift */,
@@ -292,13 +304,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D962EF51F49727E005E799E /* DollarsPickerView.swift in Sources */,
 				3D962EE31F3AF344005E799E /* DebitViewController.swift in Sources */,
 				3D962EE11F3AF2E9005E799E /* GoalsTableViewController.swift in Sources */,
+				3D962EF71F4ABDC9005E799E /* BudgetModel.swift in Sources */,
 				3D962EDF1F3ACF43005E799E /* BudgetViewController.swift in Sources */,
 				3D962EE71F3D8489005E799E /* ImageStore.swift in Sources */,
 				3D582B471F399E6E00C5E95F /* Emacity.xcdatamodeld in Sources */,
 				3D962EE51F3AF380005E799E /* AddDebitViewController.swift in Sources */,
+				3D962EF91F4BDC49005E799E /* GoalTableViewCell.swift in Sources */,
 				3D962EEF1F46DBD3005E799E /* DebitDataSource.swift in Sources */,
+				3D962EF31F496D2F005E799E /* SubCategoryPickerView.swift in Sources */,
 				3D962EED1F4429BA005E799E /* CategoryStore.swift in Sources */,
 				3D962EE91F3D8508005E799E /* Database.swift in Sources */,
 				3D582B701F39A22D00C5E95F /* TransactionViewController.swift in Sources */,

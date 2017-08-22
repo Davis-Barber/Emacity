@@ -26,6 +26,13 @@ class DebitDataSource: NSObject, UICollectionViewDataSource {
        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DebitCollectionViewCell", for: indexPath) as! DebitCollectionViewCell
         
         // Configure the cell
+        let categoryName = categories[indexPath.row].name
+        if let image = UIImage(named: categoryName!) {
+            cell.imageView.image = image
+        } else {
+            cell.imageView.image = nil
+        }
+        cell.categoryLabel.text = categoryName
         
         return cell
     }

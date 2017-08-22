@@ -11,8 +11,6 @@ import UIKit
 class DebitCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet var categoryLabel: UILabel!
+    @IBOutlet var imageView: UIImageView!
     
-    func update(with label: String) {
-        categoryLabel.text = label
-    }
 }

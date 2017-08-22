@@ -14,12 +14,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     func loadStartingCategories() {
-        let categories = ["Food", "General", "Groceries", "Transport", "Drinks",
+        let categories = ["Food", "Other", "Groceries", "Transport", "Drinks",
                         "Entertainment", "Fuel", "Clothing", "Education", "Pet",
-                        "Health", "Sport", "Hobby"]
+                        "Health", "Sport", "Hobby", "Beauty", "Home"]
+        let foodSubCategories = ["Breakfast", "Lunch", "Dinner"]
+        
         for name in categories {
             let category:Category = NSEntityDescription.insertNewObject(forEntityName: "Category", into: Database.getContext()) as! Category
             category.name = name
+            for subName in foodSubCategories {
+                let subCategory: SubCategory = NSEntityDescription.insertNewObject(forEntityName: "SubCategory", into: Database.getContext()) as! SubCategory
+                subCategory.name = subName
+                category.addToSubCategories(subCategory)
+                subCategory.category = category
+            }
         }
     }
     
@@ -35,9 +43,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 loadStartingCategories()
                 Database.saveContext()
             }
+            print(searchResults.count)
         } catch  {
             print("Error: \(error)")
         }
+        
         // Override point for customization after application launch.
         return true
     }
