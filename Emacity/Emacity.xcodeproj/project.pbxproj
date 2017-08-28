@@ -14,7 +14,6 @@
 		3D582B4C1F399E6E00C5E95F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D582B4A1F399E6E00C5E95F /* LaunchScreen.storyboard */; };
 		3D582B571F399E6E00C5E95F /* EmacityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D582B561F399E6E00C5E95F /* EmacityTests.swift */; };
 		3D582B621F399E6E00C5E95F /* EmacityUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D582B611F399E6E00C5E95F /* EmacityUITests.swift */; };
-		3D582B701F39A22D00C5E95F /* TransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D582B6F1F39A22D00C5E95F /* TransactionViewController.swift */; };
 		3D962EDF1F3ACF43005E799E /* BudgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D962EDE1F3ACF43005E799E /* BudgetViewController.swift */; };
 		3D962EE11F3AF2E9005E799E /* GoalsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D962EE01F3AF2E9005E799E /* GoalsTableViewController.swift */; };
 		3D962EE31F3AF344005E799E /* DebitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D962EE21F3AF344005E799E /* DebitViewController.swift */; };
@@ -63,7 +62,6 @@
 		3D582B5D1F399E6E00C5E95F /* EmacityUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EmacityUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D582B611F399E6E00C5E95F /* EmacityUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmacityUITests.swift; sourceTree = "<group>"; };
 		3D582B631F399E6E00C5E95F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3D582B6F1F39A22D00C5E95F /* TransactionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionViewController.swift; sourceTree = "<group>"; };
 		3D962EDE1F3ACF43005E799E /* BudgetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BudgetViewController.swift; sourceTree = "<group>"; };
 		3D962EE01F3AF2E9005E799E /* GoalsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalsTableViewController.swift; sourceTree = "<group>"; };
 		3D962EE21F3AF344005E799E /* DebitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebitViewController.swift; sourceTree = "<group>"; };
@@ -129,27 +127,17 @@
 		3D582B3D1F399E6E00C5E95F /* Emacity */ = {
 			isa = PBXGroup;
 			children = (
-				3D582B6F1F39A22D00C5E95F /* TransactionViewController.swift */,
+				3D962EFE1F4D81E1005E799E /* Budget */,
+				3D962EFF1F4D8209005E799E /* Goals */,
+				3D962F001F4D8221005E799E /* Debit */,
+				3D962F011F4D825E005E799E /* Database */,
 				3D582B3E1F399E6E00C5E95F /* AppDelegate.swift */,
-				3D962EE81F3D8508005E799E /* Database.swift */,
-				3D962EF61F4ABDC9005E799E /* BudgetModel.swift */,
 				3D582B421F399E6E00C5E95F /* Main.storyboard */,
-				3D962EFA1F4BEB6A005E799E /* AddGoalViewController.swift */,
 				3D962EFC1F4BEF80005E799E /* customTextField.swift */,
-				3D962EF81F4BDC49005E799E /* GoalTableViewCell.swift */,
-				3D962EE41F3AF380005E799E /* AddDebitViewController.swift */,
-				3D962EF41F49727E005E799E /* DollarsPickerView.swift */,
-				3D962EF21F496D2F005E799E /* SubCategoryPickerView.swift */,
-				3D962EE21F3AF344005E799E /* DebitViewController.swift */,
-				3D962EEE1F46DBD3005E799E /* DebitDataSource.swift */,
-				3D962EF01F46DFF6005E799E /* DebitCollectionViewCell.swift */,
-				3D962EE01F3AF2E9005E799E /* GoalsTableViewController.swift */,
-				3D962EDE1F3ACF43005E799E /* BudgetViewController.swift */,
 				3D962EE61F3D8489005E799E /* ImageStore.swift */,
 				3D582B481F399E6E00C5E95F /* Assets.xcassets */,
 				3D582B4A1F399E6E00C5E95F /* LaunchScreen.storyboard */,
 				3D582B4D1F399E6E00C5E95F /* Info.plist */,
-				3D582B451F399E6E00C5E95F /* Emacity.xcdatamodeld */,
 				3D962EEC1F4429BA005E799E /* CategoryStore.swift */,
 			);
 			path = Emacity;
@@ -171,6 +159,47 @@
 				3D582B631F399E6E00C5E95F /* Info.plist */,
 			);
 			path = EmacityUITests;
+			sourceTree = "<group>";
+		};
+		3D962EFE1F4D81E1005E799E /* Budget */ = {
+			isa = PBXGroup;
+			children = (
+				3D962EF61F4ABDC9005E799E /* BudgetModel.swift */,
+				3D962EDE1F3ACF43005E799E /* BudgetViewController.swift */,
+			);
+			name = Budget;
+			sourceTree = "<group>";
+		};
+		3D962EFF1F4D8209005E799E /* Goals */ = {
+			isa = PBXGroup;
+			children = (
+				3D962EFA1F4BEB6A005E799E /* AddGoalViewController.swift */,
+				3D962EF81F4BDC49005E799E /* GoalTableViewCell.swift */,
+				3D962EE01F3AF2E9005E799E /* GoalsTableViewController.swift */,
+			);
+			name = Goals;
+			sourceTree = "<group>";
+		};
+		3D962F001F4D8221005E799E /* Debit */ = {
+			isa = PBXGroup;
+			children = (
+				3D962EE41F3AF380005E799E /* AddDebitViewController.swift */,
+				3D962EF41F49727E005E799E /* DollarsPickerView.swift */,
+				3D962EF21F496D2F005E799E /* SubCategoryPickerView.swift */,
+				3D962EE21F3AF344005E799E /* DebitViewController.swift */,
+				3D962EEE1F46DBD3005E799E /* DebitDataSource.swift */,
+				3D962EF01F46DFF6005E799E /* DebitCollectionViewCell.swift */,
+			);
+			name = Debit;
+			sourceTree = "<group>";
+		};
+		3D962F011F4D825E005E799E /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				3D962EE81F3D8508005E799E /* Database.swift */,
+				3D582B451F399E6E00C5E95F /* Emacity.xcdatamodeld */,
+			);
+			name = Database;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -325,7 +354,6 @@
 				3D962EF31F496D2F005E799E /* SubCategoryPickerView.swift in Sources */,
 				3D962EED1F4429BA005E799E /* CategoryStore.swift in Sources */,
 				3D962EE91F3D8508005E799E /* Database.swift in Sources */,
-				3D582B701F39A22D00C5E95F /* TransactionViewController.swift in Sources */,
 				3D582B3F1F399E6E00C5E95F /* AppDelegate.swift in Sources */,
 				3D962EF11F46DFF6005E799E /* DebitCollectionViewCell.swift in Sources */,
 			);

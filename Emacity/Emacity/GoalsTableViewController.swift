@@ -10,44 +10,79 @@ import UIKit
 import CoreData
 
 class GoalsTableViewController: UITableViewController {
+    
+    var goals: [Goal]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 70
+        tableView.separatorColor = UIColor(white: 1, alpha: 0.5)
+                
+        updateGoals()
+
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        
+        updateGoals()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func updateGoals() {
+        let fetchRequest: NSFetchRequest<Goal> = Goal.fetchRequest()
+        let sortDescriptor = NSSortDescriptor(key: "completionDate", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        
+        do {
+            let searchResults = try Database.getContext().fetch(fetchRequest)
+            print(searchResults.count)
+            if searchResults != goals ?? [] {
+                goals = searchResults
+                self.tableView.reloadData()
+            }
+        } catch  {
+            print("Error: \(error)")
+        }
+    }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return (goals?.count) ?? 0
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "GoalTableViewCell", for: indexPath) as! GoalTableViewCell
+        
+        let goal: Goal = goals![indexPath.row]
+        
+        cell.updateCell(with: goal.name!,
+                        totalAmount: goal.totalAmount,
+                        amountRaised: goal.amountRaised,
+                        completionDate: goal.completionDate! as Date,
+                        priority: goal.priority)
 
         // Configure the cell...
 
         return cell
     }
-    */
+    
+    
+    
 
     /*
     // Override to support conditional editing of the table view.
