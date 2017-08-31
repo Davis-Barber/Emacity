@@ -31,6 +31,7 @@
 		3D962EFD1F4BEF80005E799E /* customTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D962EFC1F4BEF80005E799E /* customTextField.swift */; };
 		3D962F031F55436D005E799E /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D962F021F55436D005E799E /* SettingsTableViewController.swift */; };
 		3D962F061F56A529005E799E /* ChooseSettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D962F051F56A529005E799E /* ChooseSettingTableViewController.swift */; };
+		3D962F081F57DD82005E799E /* AddPayCheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D962F071F57DD82005E799E /* AddPayCheckViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,7 @@
 		3D962EFC1F4BEF80005E799E /* customTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = customTextField.swift; sourceTree = "<group>"; };
 		3D962F021F55436D005E799E /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		3D962F051F56A529005E799E /* ChooseSettingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseSettingTableViewController.swift; sourceTree = "<group>"; };
+		3D962F071F57DD82005E799E /* AddPayCheckViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPayCheckViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +173,7 @@
 			children = (
 				3D962EF61F4ABDC9005E799E /* BudgetModel.swift */,
 				3D962EDE1F3ACF43005E799E /* BudgetViewController.swift */,
+				3D962F071F57DD82005E799E /* AddPayCheckViewController.swift */,
 			);
 			name = Budget;
 			sourceTree = "<group>";
@@ -367,6 +370,7 @@
 				3D962EE51F3AF380005E799E /* AddDebitViewController.swift in Sources */,
 				3D962EF91F4BDC49005E799E /* GoalTableViewCell.swift in Sources */,
 				3D962EEF1F46DBD3005E799E /* DebitDataSource.swift in Sources */,
+				3D962F081F57DD82005E799E /* AddPayCheckViewController.swift in Sources */,
 				3D962EF31F496D2F005E799E /* SubCategoryPickerView.swift in Sources */,
 				3D962EED1F4429BA005E799E /* CategoryStore.swift in Sources */,
 				3D962EE91F3D8508005E799E /* Database.swift in Sources */,

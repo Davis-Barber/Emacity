@@ -49,17 +49,28 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3hJ-ht-9hn">
+                                <rect key="frame" x="231" y="64" width="128" height="34"/>
+                                <state key="normal" title="Add Pay Check!">
+                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="CHD-XG-DQv" kind="show" id="ngy-vy-DUU"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.10196078431372549" green="0.10196078431372549" blue="0.10196078431372549" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="tcJ-5l-Qpp" firstAttribute="top" secondItem="708-Fo-Tbh" secondAttribute="bottom" constant="30" id="4cU-uX-WkZ"/>
                             <constraint firstItem="tcJ-5l-Qpp" firstAttribute="centerX" secondItem="ykA-oW-zku" secondAttribute="centerX" id="C9y-WE-tci"/>
                             <constraint firstItem="708-Fo-Tbh" firstAttribute="centerX" secondItem="ykA-oW-zku" secondAttribute="centerX" id="KIh-Xu-lpk"/>
+                            <constraint firstItem="3hJ-ht-9hn" firstAttribute="top" secondItem="Tmw-CC-JtY" secondAttribute="bottom" id="NR5-xk-gqY"/>
                             <constraint firstItem="T9Z-eF-tGf" firstAttribute="top" secondItem="tcJ-5l-Qpp" secondAttribute="bottom" constant="10" id="Sbo-oh-q27"/>
                             <constraint firstItem="yLG-WO-oA7" firstAttribute="top" secondItem="T9Z-eF-tGf" secondAttribute="bottom" constant="30" id="UAT-LG-Yet"/>
                             <constraint firstItem="tcJ-5l-Qpp" firstAttribute="centerY" secondItem="ykA-oW-zku" secondAttribute="centerY" id="Y3z-DP-G0S"/>
                             <constraint firstItem="T9Z-eF-tGf" firstAttribute="centerX" secondItem="708-Fo-Tbh" secondAttribute="centerX" id="f9L-QQ-IzT"/>
                             <constraint firstItem="tcJ-5l-Qpp" firstAttribute="centerX" secondItem="ykA-oW-zku" secondAttribute="centerX" id="kXm-tp-O3U"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="3hJ-ht-9hn" secondAttribute="trailing" id="kbV-VW-rfr"/>
                             <constraint firstItem="tcJ-5l-Qpp" firstAttribute="centerX" secondItem="708-Fo-Tbh" secondAttribute="centerX" id="mFl-Nd-nkf"/>
                             <constraint firstItem="T9Z-eF-tGf" firstAttribute="centerX" secondItem="ykA-oW-zku" secondAttribute="centerX" id="qTG-5a-lt5"/>
                             <constraint firstItem="yLG-WO-oA7" firstAttribute="centerX" secondItem="708-Fo-Tbh" secondAttribute="centerX" id="szh-Hn-L3Z"/>
@@ -77,6 +88,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="addPayCheckButton" destination="3hJ-ht-9hn" id="vko-Vl-faG"/>
                         <outlet property="budgetProgressBar" destination="tcJ-5l-Qpp" id="9bu-Ze-9Ty"/>
                         <outlet property="moneyRemaining" destination="708-Fo-Tbh" id="nXo-os-jth"/>
                         <outlet property="percentOfBudgetUsed" destination="T9Z-eF-tGf" id="Trh-SQ-D2t"/>
@@ -86,6 +98,60 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ncC-Sa-XGr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="493.60000000000002" y="-136.28185907046478"/>
+        </scene>
+        <!--Add Pay Check-->
+        <scene sceneID="dcB-ag-lUc">
+            <objects>
+                <viewController id="CHD-XG-DQv" customClass="AddPayCheckViewController" customModule="Emacity" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Sgf-It-WIj"/>
+                        <viewControllerLayoutGuide type="bottom" id="aDP-Di-bae"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Kva-Ed-iOe">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Amount" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="up7-rV-lN9">
+                                <rect key="frame" x="16" y="193" width="343" height="30"/>
+                                <color key="backgroundColor" red="0.1176470588" green="0.1176470588" blue="0.1176470588" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NCZ-vH-7Lp">
+                                <rect key="frame" x="172" y="488" width="30" height="30"/>
+                                <state key="normal" title="Add"/>
+                                <connections>
+                                    <action selector="addPayCheck:" destination="CHD-XG-DQv" eventType="touchUpInside" id="41V-UE-e94"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.1176470588" green="0.1176470588" blue="0.1176470588" alpha="1" colorSpace="calibratedRGB"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="up7-rV-lN9" firstAttribute="leading" secondItem="Kva-Ed-iOe" secondAttribute="leadingMargin" id="95B-ZI-20I"/>
+                            <constraint firstItem="up7-rV-lN9" firstAttribute="top" secondItem="Sgf-It-WIj" secondAttribute="bottom" constant="129" id="BUZ-Mf-dbU"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="up7-rV-lN9" secondAttribute="trailing" id="WIj-mz-ahZ"/>
+                            <constraint firstItem="aDP-Di-bae" firstAttribute="top" secondItem="NCZ-vH-7Lp" secondAttribute="bottom" constant="100" id="tiz-ic-I45"/>
+                            <constraint firstItem="NCZ-vH-7Lp" firstAttribute="centerX" secondItem="Kva-Ed-iOe" secondAttribute="centerX" id="xyl-wd-NIl"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="jf5-7w-hWk" appends="YES" id="ath-Z3-OcE"/>
+                        </connections>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add Pay Check" id="Twk-AN-XZG"/>
+                    <connections>
+                        <outlet property="payCheckTextField" destination="up7-rV-lN9" id="njF-Q7-WmB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="N4I-7T-wJc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="jf5-7w-hWk">
+                    <connections>
+                        <action selector="backgroundTapped:" destination="CHD-XG-DQv" id="l7T-nv-6Ru"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="1487" y="-134"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="NdX-a6-o2a">
