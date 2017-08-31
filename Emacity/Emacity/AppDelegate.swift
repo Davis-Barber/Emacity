@@ -13,7 +13,7 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    func loadStartingCategories() {
+    private func loadStartingCategories() {
         let categories = ["Food", "Other", "Groceries", "Transport", "Drinks",
                         "Entertainment", "Fuel", "Clothing", "Education", "Pet",
                         "Health", "Sport", "Hobby", "Beauty", "Home"]
@@ -31,6 +31,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
+    private func setDefaultSettings() {
+        let defaultSettings = ["salaryType" : "Hourly",
+                               "payDay" : "Monday",
+                               "payPeriod" : "Weekly"]
+        for (key, value) in defaultSettings {
+            UserDefaults.standard.set(value, forKey: key)
+        }
+        UserDefaults.standard.set(0.0, forKey: "salary")
+    }
+    
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
@@ -42,6 +52,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             if searchResults.count == 0 {
                 loadStartingCategories()
                 Database.saveContext()
+                setDefaultSettings()
             }
             print(searchResults.count)
         } catch  {

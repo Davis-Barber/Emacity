@@ -10,6 +10,14 @@ import UIKit
 
 class ChooseSettingTableViewController: UITableViewController {
     
+    var settingTitle: String? {
+        didSet {
+            navigationItem.title = settingTitle
+        }
+    }
+    var settingName: String?
+    var currentSetting: String? 
+    
     var options: [String]? {
         didSet {
             tableView.reloadData()
@@ -24,7 +32,15 @@ class ChooseSettingTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+       
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        
+        UserDefaults.standard.setValue(currentSetting!, forKey: settingName!)
+    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -46,18 +62,32 @@ class ChooseSettingTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "optionCell", for: indexPath)
-
-        cell.textLabel?.text = options?[indexPath.row]
+        
+        let option = options?[indexPath.row]
+        cell.textLabel?.text = option
+        if option == currentSetting! {
+            
+            tableView.selectRow(at: indexPath, animated: true, scrollPosition: .none)
+            cell.accessoryType = .checkmark
+        }
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCellAccessoryType.checkmark
+        let cell = tableView.cellForRow(at: indexPath)
+        cell?.accessoryType = .checkmark
+        cell?.textLabel?.textColor = UIColor.darkGray
+        currentSetting = cell?.textLabel?.text
     }
     
     override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCellAccessoryType.none
+        let cell = tableView.cellForRow(at: indexPath)
+        cell?.accessoryType = .none
+        cell?.textLabel?.textColor = UIColor.white
+
     }
+    
+
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

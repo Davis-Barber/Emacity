@@ -10,7 +10,8 @@ import UIKit
 
 class SettingsTableViewController: UITableViewController {
 
-    @IBOutlet var salaryType: UISegmentedControl!
+ 
+    @IBOutlet var salaryTypeSegmentedControl: UISegmentedControl!
     
     @IBOutlet var salaryCell: UITableViewCell!
     @IBOutlet var payDayLabel: UILabel!
@@ -25,6 +26,12 @@ class SettingsTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        updateSettings()
     }
 
     override func didReceiveMemoryWarning() {
@@ -42,6 +49,34 @@ class SettingsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return 4
+    }
+    
+    private func updateSettings() {
+        if let salaryType = UserDefaults.standard.value(forKey: "salaryType") as? String {
+            if salaryType == "Hourly" {
+                salaryTypeSegmentedControl.selectedSegmentIndex = 1
+                salaryCell.isUserInteractionEnabled = false
+            } else {
+                salaryTypeSegmentedControl.selectedSegmentIndex = 0
+                salaryCell.isUserInteractionEnabled = true
+                
+            }
+        }
+        
+        if let payDay = UserDefaults.standard.value(forKey: "payDay") as? String,
+            let payPeriod = UserDefaults.standard.value(forKey: "payPeriod") as? String {
+            payDayLabel.text = payDay
+            payPeriodLabel.text = payPeriod
+        }
+    }
+    @IBAction func salarySCChanged(_ sender: UISegmentedControl) {
+        if sender.selectedSegmentIndex == 0 {
+            UserDefaults.standard.setValue("Fixed", forKey: "salaryType")
+            salaryCell.isUserInteractionEnabled = true
+        } else {
+            UserDefaults.standard.setValue("Hourly", forKey: "salaryType")
+            salaryCell.isUserInteractionEnabled = false
+        }
     }
     
     /*
@@ -101,17 +136,24 @@ class SettingsTableViewController: UITableViewController {
             let options = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
             
             let destinationVC = segue.destination as! ChooseSettingTableViewController
+            destinationVC.settingTitle = "Pay Day"
+            destinationVC.settingName = "payDay"
             destinationVC.options = options
+            destinationVC.currentSetting = payDayLabel.text
         case "payPeriodSegue"?:
             let options = ["Weekly", "Bi-Monthly", "Monthly"]
             
             let destinationVC = segue.destination as! ChooseSettingTableViewController
+            destinationVC.settingTitle = "Pay Period"
+            destinationVC.settingName = "payPeriod"
             destinationVC.options = options
+            destinationVC.currentSetting = payPeriodLabel.text
         default:
             preconditionFailure("Unexpected Segue Identifier")
         }
         
     }
+    
     
 
 }
