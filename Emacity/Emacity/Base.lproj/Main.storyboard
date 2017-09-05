@@ -349,7 +349,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nLW-zJ-UTs" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Budget" id="ZAE-5Y-AQC"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" id="gHR-Nm-0up">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="gHR-Nm-0up">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -669,7 +669,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="UV0-wR-Whf" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Settings" id="5X6-rV-xwj"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" id="fUt-Ts-f0A">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="fUt-Ts-f0A">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -760,18 +760,18 @@
                                         <rect key="frame" x="0.0" y="144" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2vD-De-Kxf" id="nGe-av-WXK">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Pay Day" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="V3f-TG-4N6">
-                                                    <rect key="frame" x="15" y="12" width="61" height="21"/>
+                                                    <rect key="frame" x="15" y="12" width="61.5" height="20.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Monday" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="eIa-D4-0Bq">
-                                                    <rect key="frame" x="278" y="12" width="62" height="21"/>
+                                                    <rect key="frame" x="278.5" y="12" width="61.5" height="20.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.29019607843137252" green="0.29019607843137252" blue="0.29019607843137252" alpha="1" colorSpace="calibratedRGB"/>
@@ -788,18 +788,18 @@
                                         <rect key="frame" x="0.0" y="188" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lx9-3q-WKi" id="kBw-Hr-rne">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Pay Period" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bsn-S7-zNv">
-                                                    <rect key="frame" x="15" y="12" width="81" height="21"/>
+                                                    <rect key="frame" x="15" y="12" width="81.5" height="20.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Weekly" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="IZN-gH-r5t">
-                                                    <rect key="frame" x="284" y="12" width="56" height="21"/>
+                                                    <rect key="frame" x="284.5" y="12" width="55.5" height="20.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.29019607843137252" green="0.29019607843137252" blue="0.29019607843137252" alpha="1" colorSpace="calibratedRGB"/>
