@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Budget-->
+        <!--Spending Money-->
         <scene sceneID="0FI-f8-IaF">
             <objects>
                 <viewController id="UYH-6V-Pqx" customClass="BudgetViewController" customModule="Emacity" customModuleProvider="target" sceneMemberID="viewController">
@@ -28,8 +28,8 @@
                                     <constraint firstAttribute="height" constant="20" id="HaG-Hd-7dy"/>
                                     <constraint firstAttribute="width" constant="200" id="HjF-Kh-FT7"/>
                                 </constraints>
-                                <color key="progressTintColor" red="0.29508480829348654" green="0.88235294119999996" blue="0.076678932566248234" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="trackTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="progressTintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="trackTintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </progressView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="50%/$" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T9Z-eF-tGf">
                                 <rect key="frame" x="162.5" y="353.5" width="50" height="21"/>
@@ -76,7 +76,7 @@
                             <constraint firstItem="yLG-WO-oA7" firstAttribute="centerX" secondItem="708-Fo-Tbh" secondAttribute="centerX" id="szh-Hn-L3Z"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Budget" id="0pG-5l-E3V">
+                    <navigationItem key="navigationItem" title="Spending Money" id="0pG-5l-E3V">
                         <barButtonItem key="leftBarButtonItem" systemItem="add" id="UiJ-4f-ekj">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </barButtonItem>

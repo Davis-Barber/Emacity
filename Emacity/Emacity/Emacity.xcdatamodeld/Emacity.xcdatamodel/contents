@@ -6,10 +6,12 @@
         <relationship name="transactions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Transaction" inverseName="category" inverseEntity="Transaction" syncable="YES"/>
     </entity>
     <entity name="Goal" representedClassName="Goal" syncable="YES" codeGenerationType="class">
-        <attribute name="amountRaised" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="amountRemaining" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="completionDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="isCompleted" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="priority" optional="YES" attributeType="Double" minValueString="0" maxValueString="2" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="startDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="totalAmount" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
     </entity>
     <entity name="PayCheck" representedClassName="PayCheck" syncable="YES" codeGenerationType="class">
@@ -29,9 +31,9 @@
     </entity>
     <elements>
         <element name="Category" positionX="-522" positionY="-378" width="128" height="88"/>
-        <element name="Goal" positionX="-344" positionY="-693" width="128" height="118"/>
+        <element name="Goal" positionX="-344" positionY="-693" width="128" height="148"/>
+        <element name="PayCheck" positionX="-191" positionY="-657" width="128" height="75"/>
+        <element name="SubCategory" positionX="-315" positionY="-403" width="128" height="88"/>
         <element name="Transaction" positionX="-117" positionY="-378" width="128" height="103"/>
-        <element name="SubCategory" positionX="-297" positionY="-423" width="128" height="88"/>
-        <element name="PayCheck" positionX="-270" positionY="-495" width="128" height="75"/>
     </elements>
 </model>

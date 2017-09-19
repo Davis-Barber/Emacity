@@ -40,8 +40,13 @@ class AddGoalViewController: UIViewController, UITextFieldDelegate {
             let goal: Goal = NSEntityDescription.insertNewObject(forEntityName: "Goal", into: Database.getContext()) as! Goal
             goal.name = name
             goal.totalAmount = cost
-            goal.amountRaised = 0
+            goal.amountRemaining = cost
+            var calendar = Calendar.current
+            calendar.timeZone = NSTimeZone.local
+            let date = Date()
+            goal.startDate = calendar.startOfDay(for: date) as NSDate
             goal.completionDate = completionDatePicker.date as NSDate
+            goal.isCompleted = false
             goal.priority = priority
             Database.saveContext()
         }
@@ -64,22 +69,25 @@ class AddGoalViewController: UIViewController, UITextFieldDelegate {
         
     }
     @IBAction func finishedEditingCost(_ sender: customTextField) {
-        updateCostPerDay()
+        updateCostPerDayLabel()
     }
 
     @IBAction func dateChanged(_ sender: Any) {
-        updateCostPerDay()
+        updateCostPerDayLabel()
     }
     
-    private func updateCostPerDay() {
+    private func updateCostPerDay() -> String {
         // Get Duration of Goal
-        let startDate = Date()
-        let endDate = completionDatePicker.date
+        var calendar = Calendar.current
+        calendar.timeZone = NSTimeZone.local
+        let date = Date()
+        let startDate = calendar.startOfDay(for: date)
+        let endDate = calendar.startOfDay(for: completionDatePicker.date)
         var dateInterval: DateInterval!
         if startDate < endDate {
             dateInterval = DateInterval(start: startDate, end: endDate)
         } else {
-            return
+            return "0"
         }
         
         let numberOfDays = Double(dateInterval.duration / (60*60*24))
@@ -91,11 +99,13 @@ class AddGoalViewController: UIViewController, UITextFieldDelegate {
 
         let costPerDay = numberFormatter.string(from: cost/numberOfDays as NSNumber)
         
-        
-        costPerDayLabel.text = "$\(costPerDay ?? "0") per Day"
-        
-        
+        return costPerDay!
     }
+    
+    private func updateCostPerDayLabel() {
+        costPerDayLabel.text = "$\(updateCostPerDay()) per Day"
+    }
+    
     @IBAction func backgroundTapped(_ sender: UITapGestureRecognizer) {
         view.endEditing(true)
     }
@@ -113,7 +123,7 @@ class AddGoalViewController: UIViewController, UITextFieldDelegate {
         // Pass the selected object to the new view controller.
     }
     */
-    //formats number to allow decimal and only one decimal place
+    //formats number to allow decimal and only up to 2 decimal places
     let numberFormatter: NumberFormatter = {
         let nf = NumberFormatter()
         nf.numberStyle = .decimal

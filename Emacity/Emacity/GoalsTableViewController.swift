@@ -72,7 +72,7 @@ class GoalsTableViewController: UITableViewController {
         
         cell.updateCell(with: goal.name!,
                         totalAmount: goal.totalAmount,
-                        amountRaised: goal.amountRaised,
+                        amountRaised: goal.totalAmount - goal.amountRemaining,
                         completionDate: goal.completionDate! as Date,
                         priority: goal.priority)
 
