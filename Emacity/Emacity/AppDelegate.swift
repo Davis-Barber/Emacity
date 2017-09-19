@@ -53,6 +53,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 loadStartingCategories()
                 Database.saveContext()
                 setDefaultSettings()
+                UserDefaults.standard.set(false, forKey: "NewUpdate")
             }
             print(searchResults.count)
         } catch  {

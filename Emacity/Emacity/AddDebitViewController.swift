@@ -57,6 +57,7 @@ class AddDebitViewController: UIViewController {
         transaction.category = subCategories[selectedRow].category
         
         Database.saveContext()
+        UserDefaults.standard.setValue(true, forKey: "NewUpdate")
     }
 
     override func didReceiveMemoryWarning() {

@@ -25,15 +25,25 @@ class BudgetViewController: UIViewController {
         budgetModel = BudgetModel()
         
         getPayCheckStatus()
-        updateView()
+        updateMoneyRemainingAndProgress()
+        updateTimeRemaining()
        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         
-        getPayCheckStatus()
-        updateView()
+        updateTimeRemaining()
+        
+        if let newUpdate = UserDefaults.standard.value(forKey: "NewUpdate") as? Bool {
+            if newUpdate {
+                //Updating
+                print("Updating View")
+                getPayCheckStatus()
+                updateMoneyRemainingAndProgress()
+            }
+        }
+        
     }
    
     private func getPayCheckStatus() {
@@ -44,12 +54,8 @@ class BudgetViewController: UIViewController {
         }
     }
     
-    // Updates all the labels and progress bar on the view
-    private func updateView() {
-        updateMoneyRemainingAndProgress()
-        updateTimeRemaining()
-    }
     
+    // **** Need to add animations ****
     private func updateMoneyRemainingAndProgress() {
         if let (valueRemaining, progressPercentage) = budgetModel?.getRemainingBudgetAndProgress() {
             let moneyText = currencyFormatter.string(from: valueRemaining as NSNumber)!
@@ -65,6 +71,7 @@ class BudgetViewController: UIViewController {
         }
     }
     
+    // **** Need to add animations ****
     private func updateTimeRemaining() {
         if let dateComponents = budgetModel?.getTimeRemaining() {
             let days = String(dateComponents.day!)

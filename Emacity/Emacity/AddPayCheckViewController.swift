@@ -29,6 +29,7 @@ class AddPayCheckViewController: UIViewController {
             payCheck.amount = Double(payCheckAmount)!
             payCheck.date = getPayDay() as NSDate
             Database.saveContext()
+            UserDefaults.standard.setValue(true, forKey: "NewUpdate")
         }
     }
     

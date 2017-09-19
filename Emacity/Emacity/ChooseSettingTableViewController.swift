@@ -78,6 +78,7 @@ class ChooseSettingTableViewController: UITableViewController {
         cell?.accessoryType = .checkmark
         cell?.textLabel?.textColor = UIColor.darkGray
         currentSetting = cell?.textLabel?.text
+        UserDefaults.standard.setValue(true, forKey: "NewUpdate")
     }
     
     override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {

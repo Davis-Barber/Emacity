@@ -49,6 +49,7 @@ class AddGoalViewController: UIViewController, UITextFieldDelegate {
             goal.isCompleted = false
             goal.priority = priority
             Database.saveContext()
+            UserDefaults.standard.setValue(true, forKey: "NewUpdate")
         }
         
         navigationController?.popToRootViewController(animated: true)
