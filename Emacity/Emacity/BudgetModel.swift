@@ -61,10 +61,10 @@ class BudgetModel {
                     // Paycheck isn't current so return false
                     payCheckIsCurrent = false
                     
+                } else {
+                    // Paycheck is valid so return true
+                    payCheckIsCurrent = true
                 }
-                // Paycheck is valid so return true
-                payCheckIsCurrent = true
-                
             }
             
         } catch  {
@@ -80,36 +80,39 @@ class BudgetModel {
     //Get separate values for cost of goals, debits, and credits
     func getRemainingBudgetAndProgress() -> (Double, Double) {
         
-        if !payCheckIsCurrent {
+        if currentPayCheck != nil {
+            
+            
+            // Calculate budgetRemaining
+            var remainingMoney = getSpendingMoney()
+            
+            // ***** Need to add Credits for current pay period to totalValue here *****
+            let totalRemainingBudget = remainingMoney
+            // Update Transactions
+            getRecentTransactions()
+            // Keep track of total spending this pay period
+            var moneySpent = 0.0
+            for debit in recentTransactions {
+                remainingMoney -= debit.amount
+                moneySpent += debit.amount
+            }
+            
+            
+            // Calculate Progress
+            let progressPercentage = moneySpent / totalRemainingBudget
+            print(totalRemainingBudget)
+            print(progressPercentage)
+            
+            return (remainingMoney, progressPercentage)
+            
+        } else {
             return (0,0)
         }
-        
-        // Calculate budgetRemaining
-        var remainingMoney = getSpendingMoney()
-        
-        // ***** Need to add Credits for current pay period to totalValue here *****
-        let totalRemainingBudget = remainingMoney
-        // Update Transactions
-        getRecentTransactions()
-        // Keep track of total spending this pay period
-        var moneySpent = 0.0
-        for debit in recentTransactions {
-            remainingMoney -= debit.amount
-            moneySpent += debit.amount
-        }
-        
-        
-        // Calculate Progress
-        let progressPercentage = moneySpent / totalRemainingBudget
-        print(totalRemainingBudget)
-        print(progressPercentage)
-        return (remainingMoney, progressPercentage)
-        
     }
     
     
     
-    func getTimeRemaining() -> DateComponents {
+    func getTimeRemaining() -> DateComponents? {
         var calendar = Calendar.current
         calendar.timeZone = NSTimeZone.local
         let date = Date()
@@ -120,7 +123,7 @@ class BudgetModel {
             
         } else {
             // return all 0s
-            return calendar.dateComponents([.day, .hour, .minute], from: date)
+            return nil
         }
         
     }
@@ -128,9 +131,9 @@ class BudgetModel {
     // Fetch all transactions for current Pay Period
     private func getRecentTransactions() {
         let fetchRequest: NSFetchRequest<Transaction> = Transaction.fetchRequest()
-       // let newEndDate: NSDate = endDate! as NSDate
-        
-        let predicate = NSPredicate(format: "date > %@", (currentPayCheck?.date)!)
+        let newEndDate: NSDate = endDate! as NSDate
+        // Only gets transactions for current paycheck period
+        let predicate = NSPredicate(format: "date >= %@ && date < %@", (currentPayCheck?.date)!, newEndDate)
         fetchRequest.predicate = predicate
         do {
             let searchResults = try Database.getContext().fetch(fetchRequest)

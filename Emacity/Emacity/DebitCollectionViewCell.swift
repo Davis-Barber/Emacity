@@ -13,4 +13,5 @@ class DebitCollectionViewCell: UICollectionViewCell {
     @IBOutlet var categoryLabel: UILabel!
     @IBOutlet var imageView: UIImageView!
     
+    
 }

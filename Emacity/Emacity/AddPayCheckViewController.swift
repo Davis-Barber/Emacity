@@ -30,6 +30,7 @@ class AddPayCheckViewController: UIViewController {
             payCheck.date = getPayDay() as NSDate
             Database.saveContext()
             UserDefaults.standard.setValue(true, forKey: "NewUpdate")
+            navigationController?.popToRootViewController(animated: true)
         }
     }
     

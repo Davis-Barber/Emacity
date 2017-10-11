@@ -43,7 +43,7 @@ class GoalTableViewCell: UITableViewCell {
     
     let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
-        formatter.dateStyle = .medium
+        formatter.dateStyle = .short
         formatter.timeStyle = .none
         return formatter
     }()

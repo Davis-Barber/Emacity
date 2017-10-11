@@ -22,6 +22,8 @@ class BudgetViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationController?.navigationBar.tintColor =  UIColor(red: 127/255, green: 186/255, blue: 243/255, alpha: 1)
+        
         budgetModel = BudgetModel()
         
         getPayCheckStatus()
@@ -41,6 +43,7 @@ class BudgetViewController: UIViewController {
                 print("Updating View")
                 getPayCheckStatus()
                 updateMoneyRemainingAndProgress()
+                UserDefaults.standard.setValue(false, forKey: "NewUpdate")
             }
         }
         
@@ -59,7 +62,7 @@ class BudgetViewController: UIViewController {
     private func updateMoneyRemainingAndProgress() {
         if let (valueRemaining, progressPercentage) = budgetModel?.getRemainingBudgetAndProgress() {
             let moneyText = currencyFormatter.string(from: valueRemaining as NSNumber)!
-            let percentText = numberFormatter.string(from: progressPercentage*100 as NSNumber)! + "% spent"
+            let percentText = numberFormatter.string(from: (1 - progressPercentage)*100 as NSNumber)! + "%"
             
             moneyRemaining.text = moneyText
             budgetProgressBar.progress = Float(progressPercentage)
@@ -83,6 +86,14 @@ class BudgetViewController: UIViewController {
                 timeRemaining = days + " days, " + hours + " hours til Pay Day!"
             } else {
                 timeRemaining = hours + " hours, " + minutes + " minutes til Pay Day!"
+            }
+            
+            // Check if it is pay day
+            let daysInt = Int(days)!, hoursInt = Int(hours)!, minutesInt = Int(minutes)!
+            
+            if daysInt < 0 || hoursInt < 0 || minutesInt < 0 {
+                timeRemaining = "Add latest Paycheck now!"
+                //addPayCheckButton.isHidden = false
             }
             
             

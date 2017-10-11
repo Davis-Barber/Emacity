@@ -77,16 +77,35 @@ class DebitViewController: UIViewController, UICollectionViewDelegate {
 }
 
 extension DebitViewController: UICollectionViewDelegateFlowLayout {
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let collectionViewWidth = collectionView.bounds.size.width
-        let itemWidth = collectionViewWidth / 3
-        
+        let itemWidth = collectionViewWidth / 3.3
         return CGSize(width: itemWidth, height: itemWidth)
     }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        let totalWidth = collectionView.bounds.size.width
+        let cellWidth = totalWidth / 3.3
+        let spacing = (totalWidth - (cellWidth*3))/4
+        return spacing
+    }
+//
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+//        return collectionViewLayout.collectionViewContentSize.width/5
+//    }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        let totalWidth = collectionView.bounds.size.width
+        let cellWidth = totalWidth / 3.3
+        let inset = (totalWidth - (cellWidth*3))/4
+        return UIEdgeInsetsMake(inset, inset, inset, inset)
+    }
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         collectionView.reloadData()
     }
+    
+    
+    
     
     
 }

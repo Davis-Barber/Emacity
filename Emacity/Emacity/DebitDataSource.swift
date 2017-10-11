@@ -33,7 +33,9 @@ class DebitDataSource: NSObject, UICollectionViewDataSource {
             cell.imageView.image = nil
         }
         cell.categoryLabel.text = categoryName
-        
+        cell.layer.cornerRadius = 15
+        cell.layer.borderWidth = 1
+        cell.layer.borderColor = UIColor.darkGray.cgColor
         return cell
     }
 }

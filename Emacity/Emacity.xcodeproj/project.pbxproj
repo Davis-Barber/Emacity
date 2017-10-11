@@ -32,6 +32,9 @@
 		3D962F031F55436D005E799E /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D962F021F55436D005E799E /* SettingsTableViewController.swift */; };
 		3D962F061F56A529005E799E /* ChooseSettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D962F051F56A529005E799E /* ChooseSettingTableViewController.swift */; };
 		3D962F081F57DD82005E799E /* AddPayCheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D962F071F57DD82005E799E /* AddPayCheckViewController.swift */; };
+		3DA0C2851F8DDE6800E99FA8 /* EndOfPayPeriodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA0C2841F8DDE6800E99FA8 /* EndOfPayPeriodViewController.swift */; };
+		3DA0C2871F8DDF3500E99FA8 /* ExtraSavingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA0C2861F8DDF3500E99FA8 /* ExtraSavingsViewController.swift */; };
+		3DA0C2891F8DDF6000E99FA8 /* AddSavingsToGoalsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA0C2881F8DDF6000E99FA8 /* AddSavingsToGoalsTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +86,9 @@
 		3D962F021F55436D005E799E /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		3D962F051F56A529005E799E /* ChooseSettingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseSettingTableViewController.swift; sourceTree = "<group>"; };
 		3D962F071F57DD82005E799E /* AddPayCheckViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPayCheckViewController.swift; sourceTree = "<group>"; };
+		3DA0C2841F8DDE6800E99FA8 /* EndOfPayPeriodViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndOfPayPeriodViewController.swift; sourceTree = "<group>"; };
+		3DA0C2861F8DDF3500E99FA8 /* ExtraSavingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtraSavingsViewController.swift; sourceTree = "<group>"; };
+		3DA0C2881F8DDF6000E99FA8 /* AddSavingsToGoalsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddSavingsToGoalsTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +142,7 @@
 				3D962EFE1F4D81E1005E799E /* Budget */,
 				3D962EFF1F4D8209005E799E /* Goals */,
 				3D962F001F4D8221005E799E /* Debit */,
+				3DA0C2831F8DDE2F00E99FA8 /* End of Pay Period */,
 				3D962F011F4D825E005E799E /* Database */,
 				3D962F041F554377005E799E /* Settings */,
 				3D582B3E1F399E6E00C5E95F /* AppDelegate.swift */,
@@ -173,7 +180,6 @@
 			children = (
 				3D962EF61F4ABDC9005E799E /* BudgetModel.swift */,
 				3D962EDE1F3ACF43005E799E /* BudgetViewController.swift */,
-				3D962F071F57DD82005E799E /* AddPayCheckViewController.swift */,
 			);
 			name = Budget;
 			sourceTree = "<group>";
@@ -217,6 +223,17 @@
 				3D962F051F56A529005E799E /* ChooseSettingTableViewController.swift */,
 			);
 			name = Settings;
+			sourceTree = "<group>";
+		};
+		3DA0C2831F8DDE2F00E99FA8 /* End of Pay Period */ = {
+			isa = PBXGroup;
+			children = (
+				3DA0C2881F8DDF6000E99FA8 /* AddSavingsToGoalsTableViewController.swift */,
+				3DA0C2861F8DDF3500E99FA8 /* ExtraSavingsViewController.swift */,
+				3DA0C2841F8DDE6800E99FA8 /* EndOfPayPeriodViewController.swift */,
+				3D962F071F57DD82005E799E /* AddPayCheckViewController.swift */,
+			);
+			name = "End of Pay Period";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -362,7 +379,9 @@
 				3D962F061F56A529005E799E /* ChooseSettingTableViewController.swift in Sources */,
 				3D962EF71F4ABDC9005E799E /* BudgetModel.swift in Sources */,
 				3D962EDF1F3ACF43005E799E /* BudgetViewController.swift in Sources */,
+				3DA0C2871F8DDF3500E99FA8 /* ExtraSavingsViewController.swift in Sources */,
 				3D962EFB1F4BEB6A005E799E /* AddGoalViewController.swift in Sources */,
+				3DA0C2851F8DDE6800E99FA8 /* EndOfPayPeriodViewController.swift in Sources */,
 				3D962EE71F3D8489005E799E /* ImageStore.swift in Sources */,
 				3D582B471F399E6E00C5E95F /* Emacity.xcdatamodeld in Sources */,
 				3D962F031F55436D005E799E /* SettingsTableViewController.swift in Sources */,
@@ -376,6 +395,7 @@
 				3D962EE91F3D8508005E799E /* Database.swift in Sources */,
 				3D582B3F1F399E6E00C5E95F /* AppDelegate.swift in Sources */,
 				3D962EF11F46DFF6005E799E /* DebitCollectionViewCell.swift in Sources */,
+				3DA0C2891F8DDF6000E99FA8 /* AddSavingsToGoalsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

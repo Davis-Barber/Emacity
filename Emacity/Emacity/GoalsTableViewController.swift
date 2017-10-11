@@ -19,8 +19,15 @@ class GoalsTableViewController: UITableViewController {
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 70
         tableView.separatorColor = UIColor(white: 1, alpha: 0.5)
-                
+        tableView.allowsSelectionDuringEditing = true
+        tableView.allowsSelection = false
+        
+        navigationController?.navigationBar.tintColor =  UIColor(red: 127/255, green: 186/255, blue: 243/255, alpha: 1)
+
+        
         updateGoals()
+        self.tableView.reloadData()
+        UserDefaults.standard.set(false, forKey: "GoalUpdate")
 
         
     }
@@ -28,7 +35,16 @@ class GoalsTableViewController: UITableViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         
-        updateGoals()
+        if let goalUpdate = UserDefaults.standard.value(forKey: "GoalUpdate") as? Bool {
+            if goalUpdate {
+                //Updating
+                print("Updating View")
+                updateGoals()
+                self.tableView.reloadData()
+                UserDefaults.standard.setValue(false, forKey: "GoalUpdate")
+
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -44,10 +60,7 @@ class GoalsTableViewController: UITableViewController {
         do {
             let searchResults = try Database.getContext().fetch(fetchRequest)
             print(searchResults.count)
-            if searchResults != goals ?? [] {
-                goals = searchResults
-                self.tableView.reloadData()
-            }
+            goals = searchResults
         } catch  {
             print("Error: \(error)")
         }
@@ -81,52 +94,64 @@ class GoalsTableViewController: UITableViewController {
         return cell
     }
     
-    
-    
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
+        navigationItem.leftBarButtonItem = editButtonItem
     }
-    */
+    
 
-    /*
-    // Override to support editing the table view.
+    
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        // If the tableView is asking to commit a delete command
         if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+            let goal = (goals?[indexPath.row])!
+            
+            let title = "Delete goal: '\(String(describing: goal.name))'?"
+            let message = "Are you sure you want to delete this goal?"
+            
+            let ac = UIAlertController(title: title, message: message, preferredStyle: .actionSheet)
+            
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            ac.addAction(cancelAction)
+            let deleteAction = UIAlertAction(title: "Remove", style: .destructive, handler: { (action) -> Void in
+                // remove the goal
+                Database.getContext().delete(goal)
+                Database.saveContext()
+                self.updateGoals()
+                // Also remove that row from the table view with an animation
+                self.tableView.deleteRows(at: [indexPath], with: .automatic)
+            })
+            ac.addAction(deleteAction)
+            
+            // Present the alert controller
+            present(ac, animated: true, completion: nil)
+        }
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
+    
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        
+        switch segue.identifier {
+        case "AddGoal"?:
+            let addGoalViewController = segue.destination as! AddGoalViewController
+            addGoalViewController.navigationController?.title = "Add Goal"
+            
+        case "EditGoal"?:
+            if let row = tableView.indexPathForSelectedRow?.row {
+                let goal = goals?[row]
+                let editGoalVC = segue.destination as! AddGoalViewController
+                editGoalVC.editGoal = goal
+                editGoalVC.navigationController?.title = "Edit Goal"
+             
+            }
+        default:
+            preconditionFailure("Unexpected segue identifier")
+        }
     }
-    */
+    
+
+    
 
 }

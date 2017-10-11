@@ -58,6 +58,7 @@ class AddDebitViewController: UIViewController {
         
         Database.saveContext()
         UserDefaults.standard.setValue(true, forKey: "NewUpdate")
+        navigationController?.popToRootViewController(animated: true)
     }
 
     override func didReceiveMemoryWarning() {

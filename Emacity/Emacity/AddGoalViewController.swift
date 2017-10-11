@@ -15,18 +15,66 @@ class AddGoalViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var costTextField: customTextField!
     @IBOutlet var completionDatePicker: UIDatePicker!
     @IBOutlet var priorityLabel: UILabel!
+    @IBOutlet var priorityStepper: UIStepper!
     @IBOutlet var costPerDayLabel: UILabel!
+    @IBOutlet var saveButton: UIButton!
+    @IBOutlet var addGoalButton: UIButton!
+    
+    var editGoal: Goal?
     
     var priority: Double!
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
-        priority = 0
-        costPerDayLabel.text = ""
+        setupView()
+        
+        
+        
+    }
+    
+    // ***** need to add condition for changing cost that would be below amount raised ******
+    @IBAction func saveButton(_ sender: UIBarButtonItem) {
+        
+        if let name = nameTextField.text,
+            let cost = Double(costTextField.text!) {
+            editGoal?.name = name
+            let previousCost = editGoal?.totalAmount
+            let costChange = cost - previousCost!
+            let amountRemaining = editGoal?.amountRemaining
+            editGoal?.amountRemaining = amountRemaining! + costChange
+            editGoal?.totalAmount = cost
+            editGoal?.completionDate = completionDatePicker.date as NSDate
+            editGoal?.priority = priority
+            Database.saveContext()
+            editGoal = nil
+            UserDefaults.standard.setValue(true, forKey: "NewUpdate")
+            UserDefaults.standard.setValue(true, forKey: "GoalUpdate")
+
+            navigationController?.popToRootViewController(animated: true)
+        }
+    }
+    private func setupView() {
+        if let goal = editGoal {
+            addGoalButton.isHidden = true
+            addGoalButton.isEnabled = false
+            navigationItem.rightBarButtonItem?.isEnabled = true
+            navigationItem.rightBarButtonItem?.tintColor = UIColor(red: 106/255, green: 227/255, blue: 104/255, alpha: 1)
+            nameTextField.text = goal.name
+            costTextField.text = String(describing: goal.totalAmount)
+            priority = goal.priority
+            updatePriorityLabel()
+            priorityStepper.value = goal.priority
+            completionDatePicker.date = (goal.completionDate as Date?)!
+        } else {
+            addGoalButton.isHidden = false
+            addGoalButton.isEnabled = true
+            navigationItem.rightBarButtonItem?.isEnabled = false
+            navigationItem.rightBarButtonItem?.tintColor = UIColor.clear
+            priority = 0
+            costPerDayLabel.text = ""
+        }
         completionDatePicker.minimumDate = Date()
         completionDatePicker.setValue(UIColor.white, forKey: "textColor")
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -50,13 +98,21 @@ class AddGoalViewController: UIViewController, UITextFieldDelegate {
             goal.priority = priority
             Database.saveContext()
             UserDefaults.standard.setValue(true, forKey: "NewUpdate")
+            UserDefaults.standard.setValue(true, forKey: "GoalUpdate")
+
         }
         
         navigationController?.popToRootViewController(animated: true)
         
     }
+
+    
     @IBAction func priorityStepper(_ sender: UIStepper) {
         priority = sender.value
+        updatePriorityLabel()
+    }
+    
+    private func updatePriorityLabel() {
         switch priority {
         case 0:
             priorityLabel.text = "Low"
@@ -67,8 +123,9 @@ class AddGoalViewController: UIViewController, UITextFieldDelegate {
         default:
             break
         }
-        
     }
+    
+    
     @IBAction func finishedEditingCost(_ sender: customTextField) {
         updateCostPerDayLabel()
     }
