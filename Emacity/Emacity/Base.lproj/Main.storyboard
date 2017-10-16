@@ -43,13 +43,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3hJ-ht-9hn">
-                                <rect key="frame" x="178" y="64" width="126" height="35"/>
+                                <rect key="frame" x="145" y="64" width="159" height="35"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
-                                <state key="normal" title="Add Pay Check!">
+                                <state key="normal" title="Update Pay Check➮">
                                     <color key="titleColor" red="0.49803921568627452" green="0.72941176470588232" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="NdK-4L-gc2" kind="show" id="uOk-90-3Cy"/>
+                                    <segue destination="vmI-NH-zwy" kind="show" identifier="updatePayCheck" id="szI-pf-QbQ"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time Remaining" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yLG-WO-oA7">
@@ -98,7 +98,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ncC-Sa-XGr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="493.60000000000002" y="-136.28185907046478"/>
+            <point key="canvasLocation" x="493.125" y="-137.32394366197184"/>
         </scene>
         <!--Add Pay Check-->
         <scene sceneID="dcB-ag-lUc">
@@ -172,124 +172,109 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="4117.5" y="-137.32394366197184"/>
+            <point key="canvasLocation" x="3051" y="-136"/>
         </scene>
         <!--Summary-->
-        <scene sceneID="MLC-WW-1pL">
+        <scene sceneID="ti7-ly-s15">
             <objects>
-                <viewController id="NdK-4L-gc2" customClass="EndOfPayPeriodViewController" sceneMemberID="viewController">
+                <viewController id="vmI-NH-zwy" customClass="SummaryViewController" customModule="Emacity" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Qrw-A9-6uY"/>
-                        <viewControllerLayoutGuide type="bottom" id="QyQ-2I-Uou"/>
+                        <viewControllerLayoutGuide type="top" id="xyX-K2-x7H"/>
+                        <viewControllerLayoutGuide type="bottom" id="1jl-YN-7Sr"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Q0G-7D-4DY">
+                    <view key="view" contentMode="scaleToFill" id="oUw-1u-ksx">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="60" translatesAutoresizingMaskIntoConstraints="NO" id="0gK-8U-xiy">
-                                <rect key="frame" x="16" y="84" width="288" height="345"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="60" translatesAutoresizingMaskIntoConstraints="NO" id="OsZ-9y-SGj">
+                                <rect key="frame" x="16" y="64" width="288" height="405"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You Saved..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wBf-l8-1Mx">
-                                        <rect key="frame" x="29" y="0.0" width="230" height="75"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You Saved..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0uX-oZ-H2k">
+                                        <rect key="frame" x="29" y="0.0" width="230" height="95"/>
                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="40"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$1000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L2f-la-Rww">
-                                        <rect key="frame" x="38" y="135" width="212" height="75"/>
-                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="70"/>
-                                        <color key="textColor" red="0.41568627450980389" green="0.8901960784313725" blue="0.40784313725490196" alpha="1" colorSpace="calibratedRGB"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$1000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ciV-Dv-oCV">
+                                        <rect key="frame" x="23" y="155" width="242.5" height="95"/>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="80"/>
+                                        <color key="textColor" red="0.41568627450000001" green="0.89019607840000003" blue="0.40784313729999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100% of Goal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DKG-Gp-Oln">
-                                        <rect key="frame" x="88.5" y="270" width="111" height="75"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100% of Goal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ogK-yL-Uxl">
+                                        <rect key="frame" x="88.5" y="310" width="111" height="95"/>
                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DP9-iH-0cT">
-                                <rect key="frame" x="97.5" y="459" width="125" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="TAL-rl-tQv"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
-                                <state key="normal" title="Extra Savings ➮"/>
-                                <connections>
-                                    <segue destination="YIQ-GI-ms5" kind="show" id="Gok-Us-M9G"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" red="0.10196078431372549" green="0.10196078431372549" blue="0.10196078431372549" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstItem="0gK-8U-xiy" firstAttribute="leading" secondItem="Q0G-7D-4DY" secondAttribute="leadingMargin" id="3Fi-lX-9SG"/>
-                            <constraint firstItem="QyQ-2I-Uou" firstAttribute="top" secondItem="DP9-iH-0cT" secondAttribute="bottom" constant="20" id="DtQ-wE-uxB"/>
-                            <constraint firstItem="0gK-8U-xiy" firstAttribute="top" secondItem="Qrw-A9-6uY" secondAttribute="bottom" constant="20" id="GNK-lQ-r17"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="0gK-8U-xiy" secondAttribute="trailing" id="HMG-Os-hPc"/>
-                            <constraint firstItem="DP9-iH-0cT" firstAttribute="centerX" secondItem="Q0G-7D-4DY" secondAttribute="centerX" id="SBL-SK-rAd"/>
-                            <constraint firstItem="DP9-iH-0cT" firstAttribute="top" secondItem="0gK-8U-xiy" secondAttribute="bottom" constant="30" id="xC3-P5-SXn"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="Summary" id="GNK-nw-g3R">
-                        <barButtonItem key="rightBarButtonItem" title="Next" style="done" id="0xt-AD-AQb">
-                            <color key="tintColor" red="0.5" green="0.72805990773333329" blue="0.95391167534722221" alpha="1" colorSpace="calibratedRGB"/>
-                            <connections>
-                                <segue destination="CHD-XG-DQv" kind="show" id="kyk-oJ-SKi"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="mPf-gK-RrB" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1378" y="-136"/>
-        </scene>
-        <!--Extra Savings-->
-        <scene sceneID="k0H-RI-qRm">
-            <objects>
-                <viewController id="YIQ-GI-ms5" customClass="ExtraSavingsViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Pim-KQ-dus"/>
-                        <viewControllerLayoutGuide type="bottom" id="ZdF-iE-pbd"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="jI5-PX-aDe">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="M1b-gx-KFX">
-                                <rect key="frame" x="16" y="64" width="288" height="455"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="fSy-3c-but">
+                                <rect key="frame" x="25" y="444" width="270" height="75"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fqW-Cg-iOe">
-                                        <rect key="frame" x="0.0" y="0.0" width="288" height="227.5"/>
-                                        <state key="normal" title="Add To Goals">
-                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h6x-Do-iyP">
+                                        <rect key="frame" x="0.0" y="0.0" width="270" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="92J-WT-YOG"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                        <state key="normal" title="Extra Savings">
+                                            <color key="titleColor" red="0.49803921569999998" green="0.72941176470000002" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
-                                            <segue destination="yJ0-gV-wBc" kind="show" id="y1q-BB-kFH"/>
+                                            <action selector="extraSavingsButton:" destination="vmI-NH-zwy" eventType="touchUpInside" id="qG1-ho-rYL"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pzk-vQ-oj8">
-                                        <rect key="frame" x="0.0" y="227.5" width="288" height="227.5"/>
-                                        <state key="normal" title="Add to Next Pay Check">
-                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="I1f-pf-xsE">
+                                        <rect key="frame" x="0.0" y="40" width="270" height="35"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AQn-Hv-PR1">
+                                                <rect key="frame" x="0.0" y="0.0" width="130" height="35"/>
+                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                                <state key="normal" title="Add to Goals">
+                                                    <color key="titleColor" red="0.49803921569999998" green="0.72941176470000002" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <segue destination="yJ0-gV-wBc" kind="show" id="Nwq-zL-ne4"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UeG-Cb-qYV">
+                                                <rect key="frame" x="140" y="0.0" width="130" height="35"/>
+                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                                <state key="normal" title="Add to Next Pay">
+                                                    <color key="titleColor" red="0.49803921569999998" green="0.72941176470000002" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.10196078431372549" green="0.10196078431372549" blue="0.10196078431372549" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="M1b-gx-KFX" secondAttribute="trailing" id="O70-ZF-6S3"/>
-                            <constraint firstItem="ZdF-iE-pbd" firstAttribute="top" secondItem="M1b-gx-KFX" secondAttribute="bottom" id="QZP-0l-Oc5"/>
-                            <constraint firstItem="M1b-gx-KFX" firstAttribute="leading" secondItem="jI5-PX-aDe" secondAttribute="leadingMargin" id="ccF-oN-f5f"/>
-                            <constraint firstItem="M1b-gx-KFX" firstAttribute="top" secondItem="Pim-KQ-dus" secondAttribute="bottom" id="jdd-Nj-Ivo"/>
+                            <constraint firstItem="1jl-YN-7Sr" firstAttribute="top" secondItem="fSy-3c-but" secondAttribute="bottom" id="8xO-3Y-rNm"/>
+                            <constraint firstItem="OsZ-9y-SGj" firstAttribute="leading" secondItem="oUw-1u-ksx" secondAttribute="leadingMargin" id="awA-6c-YLG"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="OsZ-9y-SGj" secondAttribute="trailing" id="imX-km-CFP"/>
+                            <constraint firstItem="OsZ-9y-SGj" firstAttribute="top" secondItem="xyX-K2-x7H" secondAttribute="bottom" id="k28-li-4we"/>
+                            <constraint firstItem="1jl-YN-7Sr" firstAttribute="top" secondItem="OsZ-9y-SGj" secondAttribute="bottom" constant="50" id="nO0-HZ-vel"/>
+                            <constraint firstItem="fSy-3c-but" firstAttribute="centerX" secondItem="oUw-1u-ksx" secondAttribute="centerX" id="qJI-yc-1zA"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Extra Savings" id="44J-7Y-IKc"/>
+                    <navigationItem key="navigationItem" title="Summary" id="uzT-qB-t4Q">
+                        <barButtonItem key="rightBarButtonItem" title="Next" id="NaN-Xd-Seq">
+                            <color key="tintColor" red="0.49803921569999998" green="0.72941176470000002" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="addToGoalsButton" destination="AQn-Hv-PR1" id="O1M-sV-42h"/>
+                        <outlet property="addToNextPayButton" destination="UeG-Cb-qYV" id="R9S-wJ-j5r"/>
+                        <outlet property="percentOfGoalLabel" destination="ogK-yL-Uxl" id="ViP-8l-dvg"/>
+                        <outlet property="totalSavingsLabel" destination="ciV-Dv-oCV" id="Vmj-Ll-IOk"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="vNe-tB-GNf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="q7e-ZX-cQM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2186" y="-136"/>
+            <point key="canvasLocation" x="1374" y="-137"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="NdX-a6-o2a">
@@ -1012,44 +997,29 @@
         <!--Select Goals-->
         <scene sceneID="jid-fs-MwP">
             <objects>
-                <tableViewController id="yJ0-gV-wBc" customClass="AddSavingsToGoalsTableViewController" sceneMemberID="viewController">
+                <tableViewController id="yJ0-gV-wBc" customClass="SelectGoalsTableViewController" customModule="Emacity" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="150" sectionHeaderHeight="28" sectionFooterHeight="28" id="6RT-gD-X0w">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.1019607843" green="0.1019607843" blue="0.1019607843" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="separatorColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
+                        <button key="tableHeaderView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="bAe-zr-MMB">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="Select All">
+                                <color key="titleColor" red="0.49803921569999998" green="0.72941176470000002" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="selectAllButtonPressed:" destination="yJ0-gV-wBc" eventType="touchUpInside" id="tAv-mA-drb"/>
+                            </connections>
+                        </button>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="AddToAllTableViewCell" editingAccessoryType="disclosureIndicator" rowHeight="40" id="mFy-EM-Chu" customClass="AddToAllTableViewCell">
-                                <rect key="frame" x="0.0" y="28" width="320" height="40"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mFy-EM-Chu" id="wTV-PK-ptK">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="40"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OdZ-OF-l23">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="39.5"/>
-                                            <state key="normal" title="Add to All">
-                                                <color key="titleColor" red="0.49803921568627452" green="0.72941176470588232" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
-                                            </state>
-                                        </button>
-                                    </subviews>
-                                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                    <constraints>
-                                        <constraint firstAttribute="trailing" secondItem="OdZ-OF-l23" secondAttribute="trailing" id="NG6-qJ-Vp0"/>
-                                        <constraint firstAttribute="bottom" secondItem="OdZ-OF-l23" secondAttribute="bottom" id="YQh-Dw-TYf"/>
-                                        <constraint firstItem="OdZ-OF-l23" firstAttribute="top" secondItem="wTV-PK-ptK" secondAttribute="top" id="acL-HH-aHK"/>
-                                        <constraint firstItem="OdZ-OF-l23" firstAttribute="leading" secondItem="wTV-PK-ptK" secondAttribute="leading" id="iwP-eW-P7B"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <color key="backgroundColor" red="0.1019607843" green="0.1019607843" blue="0.1019607843" alpha="1" colorSpace="calibratedRGB"/>
-                                <inset key="separatorInset" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
-                            </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="GoalTableViewCell" editingAccessoryType="disclosureIndicator" rowHeight="75" id="UVT-i8-z3R" customClass="GoalTableViewCell" customModule="Emacity" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="68" width="320" height="75"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="GoalTableViewCell" rowHeight="75" id="UVT-i8-z3R" customClass="GoalTableViewCell" customModule="Emacity" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="72" width="320" height="75"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UVT-i8-z3R" id="1Dv-p3-NEq">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="75"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="74.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <progressView verifyAmbiguity="off" opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="531-fU-4We">
@@ -1132,11 +1102,18 @@
                             <outlet property="delegate" destination="yJ0-gV-wBc" id="pey-7l-lyP"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Select Goals" id="aep-Sg-LEe"/>
+                    <navigationItem key="navigationItem" title="Select Goals" id="aep-Sg-LEe">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="9vG-cb-ghM">
+                            <color key="tintColor" red="0.49803921569999998" green="0.72941176470000002" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="selectAllButton" destination="bAe-zr-MMB" id="lna-NZ-Vdn"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UMv-Qc-NKL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3141" y="-136"/>
+            <point key="canvasLocation" x="2248" y="-137"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

@@ -104,6 +104,16 @@ class BudgetViewController: UIViewController {
         
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier {
+        case "updatePayCheck"?:
+            let summaryVC = segue.destination as? SummaryViewController
+            summaryVC?.budgetModel = budgetModel
+        default:
+            preconditionFailure("Unexpected segue identifier.")
+        }
+    }
+    
     //formats number to allow decimal and only up to 2 decimal places
     let currencyFormatter: NumberFormatter = {
         let cf = NumberFormatter()

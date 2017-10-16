@@ -88,15 +88,10 @@ class BudgetModel {
             
             // ***** Need to add Credits for current pay period to totalValue here *****
             let totalRemainingBudget = remainingMoney
-            // Update Transactions
-            getRecentTransactions()
-            // Keep track of total spending this pay period
-            var moneySpent = 0.0
-            for debit in recentTransactions {
-                remainingMoney -= debit.amount
-                moneySpent += debit.amount
-            }
             
+            // Keep track of total spending this pay period
+            let moneySpent = getTotalSpent()
+            remainingMoney -= moneySpent
             
             // Calculate Progress
             let progressPercentage = moneySpent / totalRemainingBudget
@@ -157,6 +152,19 @@ class BudgetModel {
         return total
     }
     
+    // Calculate total money spent this pay period
+    private func getTotalSpent() -> Double {
+        // Update Transactions
+        getRecentTransactions()
+        // Keep track of total spending this pay period
+        var moneySpent = 0.0
+        for debit in recentTransactions {
+            moneySpent += debit.amount
+        }
+        return moneySpent
+    }
+    
+    // calculate total cost of goal for current pay period
     private func getGoalCostForPayPeriod(for goal: Goal) -> Double {
         var calendar = Calendar.current
         calendar.timeZone = NSTimeZone.local
@@ -210,6 +218,23 @@ class BudgetModel {
     private func getPayInterval() -> TimeInterval {
         
         return TimeInterval(payPeriodDays*24*60*60)
+    }
+    
+    // Savings calculations
+    func getTotalSavings() -> Double {
+        let payCheck = (currentPayCheck?.amount)!
+        
+        let totalSavings = payCheck - getTotalSpent()
+        
+        return totalSavings
+    }
+    
+    func getGoalPercentSaved() -> Double {
+        let payCheck = (currentPayCheck?.amount)!
+        let goalsCost = payCheck - getSpendingMoney()
+        let totalSavings = getTotalSavings()
+        
+        return (totalSavings/goalsCost) * 100
     }
     
     
