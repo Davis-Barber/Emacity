@@ -54,16 +54,19 @@ class BudgetModel {
             // If there is no paycheck
             if searchResults.count == 0 {
                 payCheckIsCurrent = false
+                UserDefaults.standard.setValue(false, forKey: "isPayCheckCurrent")
             } else {
                 currentPayCheck = searchResults[0]
                 // Check if paycheck is current
                 if date > endDate! {
                     // Paycheck isn't current so return false
                     payCheckIsCurrent = false
+                    UserDefaults.standard.setValue(false, forKey: "isPayCheckCurrent")
                     
                 } else {
                     // Paycheck is valid so return true
                     payCheckIsCurrent = true
+                    UserDefaults.standard.setValue(true, forKey: "isPayCheckCurrent")
                 }
             }
             
@@ -165,7 +168,7 @@ class BudgetModel {
     }
     
     // calculate total cost of goal for current pay period
-    private func getGoalCostForPayPeriod(for goal: Goal) -> Double {
+    func getGoalCostForPayPeriod(for goal: Goal) -> Double {
         var calendar = Calendar.current
         calendar.timeZone = NSTimeZone.local
         //start and completion of goal

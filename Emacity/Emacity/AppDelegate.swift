@@ -60,6 +60,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UserDefaults.standard.set(value, forKey: key)
         }
         UserDefaults.standard.set(0.0, forKey: "salary")
+        UserDefaults.standard.set(false, forKey: "addedSavingsToGoals")
+        UserDefaults.standard.set(false, forKey: "isPayCheckCurrent")
     }
     
 

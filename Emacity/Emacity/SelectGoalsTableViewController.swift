@@ -12,6 +12,7 @@ import CoreData
 class SelectGoalsTableViewController: UITableViewController {
     
     var goals: [Goal]?
+    var extraSavings: Double?
 
     @IBOutlet var selectAllButton: UIButton!
     
@@ -30,6 +31,7 @@ class SelectGoalsTableViewController: UITableViewController {
         tableView.allowsMultipleSelection = true
         
         updateGoals()
+        navigationItem.rightBarButtonItem?.isEnabled = false
     }
 
     override func didReceiveMemoryWarning() {
@@ -60,14 +62,41 @@ class SelectGoalsTableViewController: UITableViewController {
                     tableView.selectRow(at: IndexPath(row: row, section: section), animated: false, scrollPosition: .none)
                 }
             }
+            navigationItem.rightBarButtonItem?.isEnabled = true
             selectAllButton.setTitle("Deselect All", for: .normal)
         } else {
             for row in 0 ..< tableView.numberOfRows(inSection: 0) {
                 let goalIndexPath = IndexPath(row: row, section: 0)
                 self.tableView.deselectRow(at: goalIndexPath, animated: true)
             }
+            navigationItem.rightBarButtonItem?.isEnabled = false
             sender.setTitle("Select All", for: .normal)
         }
+        
+    }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        navigationItem.rightBarButtonItem?.isEnabled = true
+    }
+    override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        if tableView.indexPathsForSelectedRows == nil {
+            navigationItem.rightBarButtonItem?.isEnabled = false
+        }
+    }
+    
+    
+    @IBAction func addSavingsToSelectedGoals(_ sender: UIBarButtonItem) {
+        let selectedGoalsIndexes = tableView.indexPathsForSelectedRows
+       // var selectedGoals = [Goal]()
+        var goalIndexes = [Int]()
+        for index in selectedGoalsIndexes! {
+            goalIndexes.append(index.row)
+        }
+        
+        UserDefaults.standard.setValue(true, forKey: "addedSavingsToGoals")
+        UserDefaults.standard.setValue(true, forKey: "GoalUpdate")
+        UserDefaults.standard.setValue(goalIndexes, forKey: "selectedGoalIndexes")
+        
+        navigationController?.popViewController(animated: true)
         
     }
 

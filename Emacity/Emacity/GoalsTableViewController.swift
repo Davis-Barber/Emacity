@@ -45,6 +45,14 @@ class GoalsTableViewController: UITableViewController {
 
             }
         }
+        
+        if let payCheckIsCurrent = UserDefaults.standard.value(forKey: "isPayCheckCurrent") as? Bool {
+            if payCheckIsCurrent {
+                navigationItem.rightBarButtonItem?.isEnabled = true
+            } else {
+                navigationItem.rightBarButtonItem?.isEnabled = false
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {

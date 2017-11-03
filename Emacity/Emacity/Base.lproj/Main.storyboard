@@ -58,11 +58,22 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PMg-xf-7Ec">
+                                <rect key="frame" x="141" y="64" width="166" height="35"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                <state key="normal" title="Add First Paycheck ➮">
+                                    <color key="titleColor" red="0.49803921569999998" green="0.72941176470000002" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="CHD-XG-DQv" kind="show" identifier="addFirstPayCheck" id="m4g-zA-OlX"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.10196078431372549" green="0.10196078431372549" blue="0.10196078431372549" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="tcJ-5l-Qpp" firstAttribute="top" secondItem="708-Fo-Tbh" secondAttribute="bottom" constant="30" id="4cU-uX-WkZ"/>
                             <constraint firstItem="tcJ-5l-Qpp" firstAttribute="centerX" secondItem="ykA-oW-zku" secondAttribute="centerX" id="C9y-WE-tci"/>
+                            <constraint firstItem="PMg-xf-7Ec" firstAttribute="centerX" secondItem="3hJ-ht-9hn" secondAttribute="centerX" id="KBw-Zq-Qas"/>
                             <constraint firstItem="708-Fo-Tbh" firstAttribute="centerX" secondItem="ykA-oW-zku" secondAttribute="centerX" id="KIh-Xu-lpk"/>
                             <constraint firstItem="3hJ-ht-9hn" firstAttribute="top" secondItem="Tmw-CC-JtY" secondAttribute="bottom" id="NR5-xk-gqY"/>
                             <constraint firstItem="tcJ-5l-Qpp" firstAttribute="leading" secondItem="ykA-oW-zku" secondAttribute="leadingMargin" constant="20" id="Qng-Ph-0Jt"/>
@@ -75,6 +86,7 @@
                             <constraint firstItem="tcJ-5l-Qpp" firstAttribute="centerX" secondItem="708-Fo-Tbh" secondAttribute="centerX" id="mFl-Nd-nkf"/>
                             <constraint firstItem="T9Z-eF-tGf" firstAttribute="centerX" secondItem="ykA-oW-zku" secondAttribute="centerX" id="qTG-5a-lt5"/>
                             <constraint firstItem="yLG-WO-oA7" firstAttribute="centerX" secondItem="708-Fo-Tbh" secondAttribute="centerX" id="szh-Hn-L3Z"/>
+                            <constraint firstItem="PMg-xf-7Ec" firstAttribute="centerY" secondItem="3hJ-ht-9hn" secondAttribute="centerY" id="zOR-oX-AzT"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Spending Money" id="0pG-5l-E3V">
@@ -84,11 +96,12 @@
                         <barButtonItem key="rightBarButtonItem" title="－" id="QhF-Z2-R39">
                             <color key="tintColor" red="0.49803921568627452" green="0.72941176470588232" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <segue destination="xeR-2T-Lc4" kind="show" id="tAI-rE-vQ6"/>
+                                <segue destination="xeR-2T-Lc4" kind="show" identifier="debitSegue" id="tAI-rE-vQ6"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="addFirstPayCheckButton" destination="PMg-xf-7Ec" id="zyY-yF-0nu"/>
                         <outlet property="addPayCheckButton" destination="3hJ-ht-9hn" id="vko-Vl-faG"/>
                         <outlet property="budgetProgressBar" destination="tcJ-5l-Qpp" id="9bu-Ze-9Ty"/>
                         <outlet property="moneyRemaining" destination="708-Fo-Tbh" id="nXo-os-jth"/>
@@ -123,7 +136,7 @@
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                             </textField>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="uP2-2V-r6w">
-                                <rect key="frame" x="78" y="283" width="164" height="136"/>
+                                <rect key="frame" x="78" y="283" width="164.5" height="136"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="For Pay Period:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Brj-Sl-0At">
                                         <rect key="frame" x="24.5" y="0.0" width="115.5" height="45.5"/>
@@ -131,15 +144,37 @@
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start Date - end Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lVs-zX-vqU">
-                                        <rect key="frame" x="0.0" y="45.5" width="164" height="45"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="zFi-DX-Xwy">
+                                        <rect key="frame" x="0.0" y="45.5" width="164.5" height="45"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lVs-zX-vqU">
+                                                <rect key="frame" x="0.0" y="24.5" width="78" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" - " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p3Y-2g-bTi">
+                                                <rect key="frame" x="78" y="24.5" width="16.5" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="End Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fmf-y4-iAC">
+                                                <rect key="frame" x="94.5" y="24.5" width="70" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WmZ-6e-Iri">
-                                        <rect key="frame" x="67" y="90.5" width="30" height="45.5"/>
-                                        <state key="normal" title="Edit"/>
+                                        <rect key="frame" x="67.5" y="90.5" width="30" height="45.5"/>
+                                        <state key="normal" title="Edit">
+                                            <color key="titleColor" red="0.49803921569999998" green="0.72941176470000002" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="Va9-wY-tNi" kind="show" id="tYR-cx-Sdk"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -159,10 +194,17 @@
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Add Pay Check" id="Twk-AN-XZG">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="Yhp-cb-v5k"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Yhp-cb-v5k">
+                            <color key="tintColor" red="0.49803921569999998" green="0.72941176470000002" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="addPayCheck:" destination="CHD-XG-DQv" id="Px8-ip-Qvl"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="endDateLabel" destination="fmf-y4-iAC" id="oks-7P-NUm"/>
                         <outlet property="payCheckTextField" destination="up7-rV-lN9" id="njF-Q7-WmB"/>
+                        <outlet property="startDateLabel" destination="lVs-zX-vqU" id="yux-LH-2zp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N4I-7T-wJc" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -173,6 +215,89 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="3051" y="-136"/>
+        </scene>
+        <!--Edit Pay Period View Controller-->
+        <scene sceneID="V7l-zn-NOc">
+            <objects>
+                <viewController id="Va9-wY-tNi" customClass="EditPayPeriodViewController" customModule="Emacity" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="MG9-7F-4pk"/>
+                        <viewControllerLayoutGuide type="bottom" id="edn-5t-t8v"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="o1b-th-9ch">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="V0f-5a-djN">
+                                <rect key="frame" x="0.0" y="84" width="320" height="435"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="2HO-PH-9qZ">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="217.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start Date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IK8-i8-Ug5">
+                                                <rect key="frame" x="118.5" y="0.0" width="83" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <datePicker contentMode="scaleToFill" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="VXl-Dc-tkN">
+                                                <rect key="frame" x="0.0" y="20.5" width="320" height="176.5"/>
+                                                <date key="date" timeIntervalSinceReferenceDate="530414208.67433399">
+                                                    <!--2017-10-23 01:16:48 +0000-->
+                                                </date>
+                                            </datePicker>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start Date Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="84Z-O9-8OF">
+                                                <rect key="frame" x="98" y="197" width="124" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.49803921569999998" green="0.72941176470000002" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="mTP-Su-JJc">
+                                        <rect key="frame" x="0.0" y="217.5" width="320" height="217.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="End Date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ttm-Da-wzC">
+                                                <rect key="frame" x="123" y="0.0" width="74.5" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <datePicker contentMode="scaleToFill" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="UUL-v5-lS6">
+                                                <rect key="frame" x="0.0" y="20.5" width="320" height="197"/>
+                                                <date key="date" timeIntervalSinceReferenceDate="530415945.49069101">
+                                                    <!--2017-10-23 01:45:45 +0000-->
+                                                </date>
+                                            </datePicker>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qen-Fd-Fhy">
+                                <rect key="frame" x="147" y="547" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.10196078431372549" green="0.10196078431372549" blue="0.10196078431372549" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="V0f-5a-djN" firstAttribute="top" secondItem="MG9-7F-4pk" secondAttribute="bottom" constant="20" id="5aQ-Tk-Q4f"/>
+                            <constraint firstItem="edn-5t-t8v" firstAttribute="top" secondItem="V0f-5a-djN" secondAttribute="bottom" id="eNt-Os-VGp"/>
+                            <constraint firstAttribute="trailing" secondItem="V0f-5a-djN" secondAttribute="trailing" id="sF1-tM-1bg"/>
+                            <constraint firstItem="V0f-5a-djN" firstAttribute="leading" secondItem="o1b-th-9ch" secondAttribute="leading" id="wYE-dg-H28"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="endDatePicker" destination="UUL-v5-lS6" id="4Pq-4k-TPY"/>
+                        <outlet property="startDateLabel" destination="84Z-O9-8OF" id="ing-o0-vQb"/>
+                        <outlet property="startDatePicker" destination="VXl-Dc-tkN" id="LUG-X3-IPE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tpn-PJ-2Pb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3851" y="-135"/>
         </scene>
         <!--Summary-->
         <scene sceneID="ti7-ly-s15">
@@ -235,7 +360,7 @@
                                                     <color key="titleColor" red="0.49803921569999998" green="0.72941176470000002" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="yJ0-gV-wBc" kind="show" id="Nwq-zL-ne4"/>
+                                                    <segue destination="yJ0-gV-wBc" kind="show" identifier="addToGoals" id="Nwq-zL-ne4"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UeG-Cb-qYV">
@@ -244,6 +369,9 @@
                                                 <state key="normal" title="Add to Next Pay">
                                                     <color key="titleColor" red="0.49803921569999998" green="0.72941176470000002" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="addToNextPayButton:" destination="vmI-NH-zwy" eventType="touchUpInside" id="zan-if-NwX"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -263,11 +391,15 @@
                     <navigationItem key="navigationItem" title="Summary" id="uzT-qB-t4Q">
                         <barButtonItem key="rightBarButtonItem" title="Next" id="NaN-Xd-Seq">
                             <color key="tintColor" red="0.49803921569999998" green="0.72941176470000002" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <segue destination="CHD-XG-DQv" kind="show" identifier="nextPayCheck" id="II1-RP-irb"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="addToGoalsButton" destination="AQn-Hv-PR1" id="O1M-sV-42h"/>
                         <outlet property="addToNextPayButton" destination="UeG-Cb-qYV" id="R9S-wJ-j5r"/>
+                        <outlet property="extraSavingsButton" destination="h6x-Do-iyP" id="u25-Ry-zC1"/>
                         <outlet property="percentOfGoalLabel" destination="ogK-yL-Uxl" id="ViP-8l-dvg"/>
                         <outlet property="totalSavingsLabel" destination="ciV-Dv-oCV" id="Vmj-Ll-IOk"/>
                     </connections>
@@ -417,19 +549,19 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HLY-yP-n80">
-                                <rect key="frame" x="96" y="337.5" width="12.5" height="24"/>
+                                <rect key="frame" x="96" y="337" width="12.5" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H06-YP-gqu">
-                                <rect key="frame" x="26" y="147.5" width="49.5" height="24"/>
+                                <rect key="frame" x="26" y="147" width="49.5" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hds-xn-bRR">
-                                <rect key="frame" x="157.5" y="340" width="5" height="20.5"/>
+                                <rect key="frame" x="157.5" y="339.5" width="5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -605,7 +737,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Goals" id="Fxt-qm-cf7">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="lOW-FV-FsU">
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="add" id="lOW-FV-FsU">
                             <color key="tintColor" red="0.49803921568627452" green="0.72941176470588232" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="dCP-jh-k73" kind="show" identifier="AddGoal" id="ahi-zV-DCF"/>
@@ -1019,7 +1151,7 @@
                                 <rect key="frame" x="0.0" y="72" width="320" height="75"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UVT-i8-z3R" id="1Dv-p3-NEq">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="74.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="75"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <progressView verifyAmbiguity="off" opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="531-fU-4We">
@@ -1054,7 +1186,7 @@
                                             </subviews>
                                         </stackView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="50%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="meq-cj-0nu">
-                                            <rect key="frame" x="142.5" y="51" width="36" height="20"/>
+                                            <rect key="frame" x="142" y="51" width="36" height="20"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
@@ -1105,6 +1237,9 @@
                     <navigationItem key="navigationItem" title="Select Goals" id="aep-Sg-LEe">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="9vG-cb-ghM">
                             <color key="tintColor" red="0.49803921569999998" green="0.72941176470000002" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="addSavingsToSelectedGoals:" destination="yJ0-gV-wBc" id="9Dg-iC-Ir2"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -1119,5 +1254,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="ifJ-lv-aqK"/>
         <segue reference="l1e-Gm-X5L"/>
+        <segue reference="II1-RP-irb"/>
     </inferredMetricsTieBreakers>
 </document>

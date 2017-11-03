@@ -26,8 +26,9 @@ class GoalTableViewCell: UITableViewCell {
         amountLabel.text = "$\(goalAmount!)"
         // Convert date to string
         dateLabel.text = dateFormatter.string(from: completionDate)
-        let percent = amountRaised/totalAmount * 100
-        percentCompleteLabel.text = "\(percent)%"
+        let percent = amountRaised/totalAmount
+        let percentString = numberFormatter.string(from: percent * 100.0 as NSNumber)
+        percentCompleteLabel.text = percentString! + "%"
         switch priority {
         case 0:
             priorityLabel.text = "Low"
@@ -37,7 +38,7 @@ class GoalTableViewCell: UITableViewCell {
             priorityLabel.text = "High"
         default: break
         }
-        progressBar.progress = 0.34 //Float(amountRaised/totalAmount)
+        progressBar.progress = Float(amountRaised/totalAmount)
         
     }
     

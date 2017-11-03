@@ -35,6 +35,7 @@
 		3DA0C2851F8DDE6800E99FA8 /* SummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA0C2841F8DDE6800E99FA8 /* SummaryViewController.swift */; };
 		3DA0C2871F8DDF3500E99FA8 /* ExtraSavingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA0C2861F8DDF3500E99FA8 /* ExtraSavingsViewController.swift */; };
 		3DA0C2891F8DDF6000E99FA8 /* SelectGoalsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA0C2881F8DDF6000E99FA8 /* SelectGoalsTableViewController.swift */; };
+		3DA0C28B1F9D78B400E99FA8 /* EditPayPeriodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA0C28A1F9D78B400E99FA8 /* EditPayPeriodViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +90,7 @@
 		3DA0C2841F8DDE6800E99FA8 /* SummaryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryViewController.swift; sourceTree = "<group>"; };
 		3DA0C2861F8DDF3500E99FA8 /* ExtraSavingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtraSavingsViewController.swift; sourceTree = "<group>"; };
 		3DA0C2881F8DDF6000E99FA8 /* SelectGoalsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectGoalsTableViewController.swift; sourceTree = "<group>"; };
+		3DA0C28A1F9D78B400E99FA8 /* EditPayPeriodViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditPayPeriodViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -228,6 +230,7 @@
 		3DA0C2831F8DDE2F00E99FA8 /* End of Pay Period */ = {
 			isa = PBXGroup;
 			children = (
+				3DA0C28A1F9D78B400E99FA8 /* EditPayPeriodViewController.swift */,
 				3DA0C2881F8DDF6000E99FA8 /* SelectGoalsTableViewController.swift */,
 				3DA0C2861F8DDF3500E99FA8 /* ExtraSavingsViewController.swift */,
 				3DA0C2841F8DDE6800E99FA8 /* SummaryViewController.swift */,
@@ -383,6 +386,7 @@
 				3D962EFB1F4BEB6A005E799E /* AddGoalViewController.swift in Sources */,
 				3DA0C2851F8DDE6800E99FA8 /* SummaryViewController.swift in Sources */,
 				3D962EE71F3D8489005E799E /* ImageStore.swift in Sources */,
+				3DA0C28B1F9D78B400E99FA8 /* EditPayPeriodViewController.swift in Sources */,
 				3D582B471F399E6E00C5E95F /* Emacity.xcdatamodeld in Sources */,
 				3D962F031F55436D005E799E /* SettingsTableViewController.swift in Sources */,
 				3D962EFD1F4BEF80005E799E /* customTextField.swift in Sources */,

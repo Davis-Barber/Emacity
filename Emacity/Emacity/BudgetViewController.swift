@@ -16,7 +16,7 @@ class BudgetViewController: UIViewController {
     @IBOutlet var percentOfBudgetUsed: UILabel!
     @IBOutlet var budgetProgressBar: UIProgressView!
     @IBOutlet var addPayCheckButton: UIButton!
-    
+    @IBOutlet var addFirstPayCheckButton: UIButton!
     var budgetModel: BudgetModel?
     
     override func viewDidLoad() {
@@ -25,6 +25,7 @@ class BudgetViewController: UIViewController {
         navigationController?.navigationBar.tintColor =  UIColor(red: 127/255, green: 186/255, blue: 243/255, alpha: 1)
         
         budgetModel = BudgetModel()
+        
         
         getPayCheckStatus()
         updateMoneyRemainingAndProgress()
@@ -52,8 +53,15 @@ class BudgetViewController: UIViewController {
     private func getPayCheckStatus() {
         if (budgetModel?.isPayCheckCurrent())! {
             addPayCheckButton.isHidden = true
+            addFirstPayCheckButton.isHidden = true
         } else {
-            addPayCheckButton.isHidden = false
+            if budgetModel?.currentPayCheck == nil {
+                addFirstPayCheckButton.isHidden = false
+                addPayCheckButton.isHidden = true
+            } else {
+                addFirstPayCheckButton.isHidden = true
+                addPayCheckButton.isHidden = false
+            }
         }
     }
     
@@ -107,8 +115,14 @@ class BudgetViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
         case "updatePayCheck"?:
+            
             let summaryVC = segue.destination as? SummaryViewController
             summaryVC?.budgetModel = budgetModel
+        case "debitSegue"?:
+            let debitVC = segue.destination as? AddDebitViewController
+            // any prep for addDebitViewController
+        case "addFirstPayCheck"?:
+            let addPayCheckVC = segue.destination as? AddPayCheckViewController
         default:
             preconditionFailure("Unexpected segue identifier.")
         }
