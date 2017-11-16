@@ -173,7 +173,7 @@
                                             <color key="titleColor" red="0.49803921569999998" green="0.72941176470000002" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
-                                            <segue destination="Va9-wY-tNi" kind="show" id="tYR-cx-Sdk"/>
+                                            <segue destination="Va9-wY-tNi" kind="show" identifier="editPayPeriod" id="tYR-cx-Sdk"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -460,8 +460,8 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Food" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="6" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WTW-yn-G1c">
-                                                    <rect key="frame" x="28.5" y="38" width="43.5" height="25"/>
-                                                    <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="20"/>
+                                                    <rect key="frame" x="26.5" y="37" width="47.5" height="27"/>
+                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="20"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                     <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -648,7 +648,7 @@
                         <color key="separatorColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="GoalTableViewCell" editingAccessoryType="disclosureIndicator" rowHeight="70" id="CcF-7b-uOv" customClass="GoalTableViewCell" customModule="Emacity" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="GoalTableViewCell" rowHeight="70" id="CcF-7b-uOv" customClass="GoalTableViewCell" customModule="Emacity" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="320" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CcF-7b-uOv" id="tOe-4o-qBs">
@@ -765,7 +765,7 @@
                                 <rect key="frame" x="16" y="74" width="288" height="445"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="sxJ-SW-5Hf">
-                                        <rect key="frame" x="0.0" y="0.0" width="288" height="134.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="288" height="106.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="gky-Zh-gV9">
                                                 <rect key="frame" x="0.0" y="0.0" width="288" height="30"/>
@@ -807,32 +807,8 @@
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.11764705882352941" green="0.11764705882352941" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="1LO-xN-jwH">
-                                                <rect key="frame" x="0.0" y="76" width="288" height="28"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Priority:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="68g-ux-GEj">
-                                                        <rect key="frame" x="0.0" y="0.0" width="147" height="28"/>
-                                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
-                                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Low" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="geR-Vf-FTz">
-                                                        <rect key="frame" x="155" y="0.0" width="31" height="28"/>
-                                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
-                                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="2" translatesAutoresizingMaskIntoConstraints="NO" id="8YL-wd-lya">
-                                                        <rect key="frame" x="194" y="0.0" width="94" height="29"/>
-                                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <connections>
-                                                            <action selector="priorityStepper:" destination="dCP-jh-k73" eventType="valueChanged" id="9Rf-N8-Jzi"/>
-                                                        </connections>
-                                                    </stepper>
-                                                </subviews>
-                                            </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Achieve By:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nRQ-NM-nSB">
-                                                <rect key="frame" x="0.0" y="112" width="288" height="22.5"/>
+                                                <rect key="frame" x="0.0" y="76" width="288" height="30.5"/>
                                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
@@ -843,7 +819,7 @@
                                         </constraints>
                                     </stackView>
                                     <datePicker contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="47a-pm-UMD">
-                                        <rect key="frame" x="0.0" y="134.5" width="288" height="214.5"/>
+                                        <rect key="frame" x="0.0" y="106.5" width="288" height="234"/>
                                         <date key="date" timeIntervalSinceReferenceDate="525066856.13958102">
                                             <!--2017-08-22 03:54:16 +0000-->
                                         </date>
@@ -852,7 +828,7 @@
                                         </connections>
                                     </datePicker>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="-10" translatesAutoresizingMaskIntoConstraints="NO" id="eLw-iX-aaC">
-                                        <rect key="frame" x="102.5" y="349" width="83" height="96"/>
+                                        <rect key="frame" x="102.5" y="340.5" width="83" height="104.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$50 / Day" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Ht-x1-pbQ">
                                                 <rect key="frame" x="0.0" y="0.0" width="83" height="22.5"/>
@@ -861,7 +837,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="748" verticalCompressionResistancePriority="747" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gCU-P5-23J">
-                                                <rect key="frame" x="16.5" y="12.5" width="50" height="83.5"/>
+                                                <rect key="frame" x="16.5" y="12.5" width="50" height="92"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="60"/>
                                                 <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <state key="normal" title="⊞">
@@ -906,8 +882,6 @@
                         <outlet property="costPerDayLabel" destination="6Ht-x1-pbQ" id="9P8-f5-hih"/>
                         <outlet property="costTextField" destination="Z5T-al-8ER" id="deg-hu-sPZ"/>
                         <outlet property="nameTextField" destination="dpE-7G-0ss" id="ued-As-WRc"/>
-                        <outlet property="priorityLabel" destination="geR-Vf-FTz" id="naO-4D-Ia0"/>
-                        <outlet property="priorityStepper" destination="8YL-wd-lya" id="Pgq-E5-Cjj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wFP-gE-hZo" userLabel="First Responder" sceneMemberID="firstResponder"/>

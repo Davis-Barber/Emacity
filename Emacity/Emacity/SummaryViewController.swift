@@ -32,12 +32,12 @@ class SummaryViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         
-        if let addedGoals = UserDefaults.standard.value(forKey: "addedSavingsToGoals") as? Bool,
-            let addedToNextPay = UserDefaults.standard.value(forKey: "addedToNextPay") as? Bool {
-            if addedGoals || addedToNextPay {
-                disableExtraSavingsButton()
-            }
+        let addedGoals = UserDefaults.standard.value(forKey: "addedSavingsToGoals") as? Bool
+        let addedToNextPay = UserDefaults.standard.value(forKey: "addedToNextPay") as? Bool
+        if addedGoals! || addedToNextPay! {
+            disableExtraSavingsButton()
         }
+        
     }
     
 

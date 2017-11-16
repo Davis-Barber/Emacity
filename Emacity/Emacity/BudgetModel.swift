@@ -25,19 +25,10 @@ class BudgetModel {
     var goals = [Goal]()
     
     var payPeriodDays: Double {
-        var days = 0.0
-        switch (UserDefaults.standard.value(forKey: "payPeriod") as? String)! {
-        case "Weekly":
-            days = 7
-        case "Bi-Monthly":
-            days = 14
-        case "Monthly":
-            days = 28
-        default:
-            break
-        }
-        return days
+        return UserDefaults.standard.value(forKey: "payPeriodLength") as! Double
     }
+    
+    
     
     func isPayCheckCurrent() -> Bool{
         let date = Date()
@@ -183,17 +174,21 @@ class BudgetModel {
         // Check whether goal's start and end day are inside current payperiod
         if startDate <= payCheckStartDate && completionDate >= endDate! {
             // goal starts and ends outside payPeriod
-            return dailyAmount*payPeriodDays
+            goal.isNearlyComplete = false
+            return dailyAmount * payPeriodDays
         } else if startDate <= payCheckStartDate && completionDate < endDate! {
             // goal ends during pay period
+            goal.isNearlyComplete = true
             let days = calendar.dateComponents([.day], from: payCheckStartDate, to: completionDate).day!
             return dailyAmount*Double(days)
         } else if startDate > payCheckStartDate && completionDate >= endDate! {
             // goal starts during pay period
+            goal.isNearlyComplete = false
             let days = calendar.dateComponents([.day], from: startDate, to: endDate!).day!
             return dailyAmount*Double(days)
         } else {
             // goal starts and ends inside pay period
+            goal.isNearlyComplete = true
             let days = calendar.dateComponents([.day], from: startDate, to: completionDate).day!
             return dailyAmount*Double(days)
         }
@@ -205,6 +200,8 @@ class BudgetModel {
     private func getGoals() {
         let fetchRequest: NSFetchRequest<Goal> = Goal.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "isCompleted == %@", false as CVarArg)
+        let sortDescriptor = NSSortDescriptor(key: "priority", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
         
         do {
             let searchResults = try Database.getContext().fetch(fetchRequest)
@@ -223,6 +220,7 @@ class BudgetModel {
         return TimeInterval(payPeriodDays*24*60*60)
     }
     
+    
     // Savings calculations
     func getTotalSavings() -> Double {
         let payCheck = (currentPayCheck?.amount)!
@@ -239,6 +237,8 @@ class BudgetModel {
         
         return (totalSavings/goalsCost) * 100
     }
+    
+    
     
     
 

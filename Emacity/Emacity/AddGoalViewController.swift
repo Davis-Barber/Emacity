@@ -23,6 +23,7 @@ class AddGoalViewController: UIViewController, UITextFieldDelegate {
     var editGoal: Goal?
     
     var priority: Double!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -62,15 +63,15 @@ class AddGoalViewController: UIViewController, UITextFieldDelegate {
             nameTextField.text = goal.name
             costTextField.text = String(describing: goal.totalAmount)
             priority = goal.priority
-            updatePriorityLabel()
-            priorityStepper.value = goal.priority
+            
             completionDatePicker.date = (goal.completionDate as Date?)!
+            
+            updateCostPerDayLabel()
         } else {
             addGoalButton.isHidden = false
             addGoalButton.isEnabled = true
             navigationItem.rightBarButtonItem?.isEnabled = false
             navigationItem.rightBarButtonItem?.tintColor = UIColor.clear
-            priority = 0
             costPerDayLabel.text = ""
         }
         completionDatePicker.minimumDate = Date()
@@ -95,6 +96,7 @@ class AddGoalViewController: UIViewController, UITextFieldDelegate {
             goal.startDate = calendar.startOfDay(for: date) as NSDate
             goal.completionDate = completionDatePicker.date as NSDate
             goal.isCompleted = false
+            goal.isNearlyComplete = false
             goal.priority = priority
             Database.saveContext()
             UserDefaults.standard.setValue(true, forKey: "NewUpdate")
@@ -106,24 +108,7 @@ class AddGoalViewController: UIViewController, UITextFieldDelegate {
         
     }
 
-    
-    @IBAction func priorityStepper(_ sender: UIStepper) {
-        priority = sender.value
-        updatePriorityLabel()
-    }
-    
-    private func updatePriorityLabel() {
-        switch priority {
-        case 0:
-            priorityLabel.text = "Low"
-        case 1:
-            priorityLabel.text = "Med"
-        case 2:
-            priorityLabel.text = "High"
-        default:
-            break
-        }
-    }
+
     
     
     @IBAction func finishedEditingCost(_ sender: customTextField) {
@@ -134,6 +119,8 @@ class AddGoalViewController: UIViewController, UITextFieldDelegate {
         updateCostPerDayLabel()
     }
     
+    // *** Need to add condition for edit goal, needs to get cost from startDate or startdate of pay check and
+    // use amount remaining not total amount
     private func updateCostPerDay() -> String {
         // Get Duration of Goal
         var calendar = Calendar.current

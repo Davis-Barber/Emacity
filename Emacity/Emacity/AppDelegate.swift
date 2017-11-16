@@ -61,7 +61,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         UserDefaults.standard.set(0.0, forKey: "salary")
         UserDefaults.standard.set(false, forKey: "addedSavingsToGoals")
+        UserDefaults.standard.set(false, forKey: "addedToNextPay")
         UserDefaults.standard.set(false, forKey: "isPayCheckCurrent")
+        UserDefaults.standard.set(7, forKey: "payPeriodLength")
     }
     
 

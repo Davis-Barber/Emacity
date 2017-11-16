@@ -41,7 +41,7 @@ class SelectGoalsTableViewController: UITableViewController {
     
     func updateGoals() {
         let fetchRequest: NSFetchRequest<Goal> = Goal.fetchRequest()
-        let sortDescriptor = NSSortDescriptor(key: "completionDate", ascending: true)
+        let sortDescriptor = NSSortDescriptor(key: "priority", ascending: true)
         fetchRequest.sortDescriptors = [sortDescriptor]
         
         do {
@@ -114,21 +114,26 @@ class SelectGoalsTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-       
-            let cell = tableView.dequeueReusableCell(withIdentifier: "GoalTableViewCell", for: indexPath) as! GoalTableViewCell
-            
-            let goal: Goal = goals![indexPath.row]
-            
-            cell.updateCell(with: goal.name!,
-                            totalAmount: goal.totalAmount,
-                            amountRaised: goal.totalAmount - goal.amountRemaining,
-                            completionDate: goal.completionDate! as Date,
-                            priority: goal.priority)
-            
-            // Configure the cell...
-            cell.tintColor = UIColor(red: 127/255, green: 186/255, blue: 243/255, alpha: 1)
-            
-            return cell
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "GoalTableViewCell", for: indexPath) as! GoalTableViewCell
+        
+        let goal: Goal = goals![indexPath.row]
+        
+        cell.updateCell(with: goal.name!,
+                        totalAmount: goal.totalAmount,
+                        amountRaised: goal.totalAmount - goal.amountRemaining,
+                        completionDate: goal.completionDate! as Date,
+                        priority: goal.priority)
+        
+        
+        if goal.isNearlyComplete {
+            cell.dateLabel.text = "Completed"
+            cell.isUserInteractionEnabled = false
+        }
+        // Configure the cell...
+        cell.tintColor = UIColor(red: 127/255, green: 186/255, blue: 243/255, alpha: 1)
+        
+        return cell
 
     }
     

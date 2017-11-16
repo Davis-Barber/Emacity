@@ -32,6 +32,8 @@ class GoalsTableViewController: UITableViewController {
         
     }
     
+    
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         
@@ -62,7 +64,7 @@ class GoalsTableViewController: UITableViewController {
     
     func updateGoals() {
         let fetchRequest: NSFetchRequest<Goal> = Goal.fetchRequest()
-        let sortDescriptor = NSSortDescriptor(key: "completionDate", ascending: true)
+        let sortDescriptor = NSSortDescriptor(key: "priority", ascending: true)
         fetchRequest.sortDescriptors = [sortDescriptor]
         
         do {
@@ -72,6 +74,33 @@ class GoalsTableViewController: UITableViewController {
         } catch  {
             print("Error: \(error)")
         }
+    }
+    
+    private func moveGoal(from fromIndex: Int, to toIndex: Int) {
+        if fromIndex == toIndex {
+            return
+        }
+        
+        // Get reference to goal being moved
+        let goal = goals?[fromIndex]
+        // Remove goal at fromIndex
+        goals?.remove(at: fromIndex)
+        // Insert Goal at toIndex
+        goals?.insert(goal!, at: toIndex)
+        // Update priorities
+        updatePriorities()
+        // reload data
+        updateGoals()
+        self.tableView.reloadData()
+    }
+    
+    private func updatePriorities() {
+        var count = 1.0
+        for goal in goals! {
+            goal.priority = count
+            count += 1
+        }
+        Database.saveContext()
     }
 
     // MARK: - Table view data source
@@ -106,6 +135,7 @@ class GoalsTableViewController: UITableViewController {
         super.init(coder: aDecoder)
         
         navigationItem.leftBarButtonItem = editButtonItem
+        
     }
     
 
@@ -137,6 +167,22 @@ class GoalsTableViewController: UITableViewController {
         }
     }
     
+    override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        // Update model and database
+        moveGoal(from: sourceIndexPath.row, to: destinationIndexPath.row)
+    }
+    
+    override func tableView(_ tableView: UITableView, willBeginEditingRowAt indexPath: IndexPath) {
+        print("is editing")
+    }
+    
+    override func tableView(_ tableView: UITableView, didEndEditingRowAt indexPath: IndexPath?) {
+        let cell = tableView.cellForRow(at: indexPath!) as? GoalTableViewCell
+        cell?.amountLabel.isHidden = false
+    }
+    
+    
+    
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -145,6 +191,8 @@ class GoalsTableViewController: UITableViewController {
         case "AddGoal"?:
             let addGoalViewController = segue.destination as! AddGoalViewController
             addGoalViewController.navigationController?.title = "Add Goal"
+            let goalCount = goals?.count
+            addGoalViewController.priority = Double(goalCount! + 1)
             
         case "EditGoal"?:
             if let row = tableView.indexPathForSelectedRow?.row {
@@ -162,4 +210,8 @@ class GoalsTableViewController: UITableViewController {
 
     
 
+}
+
+extension GoalsTableViewController: UINavigationControllerDelegate {
+    
 }
